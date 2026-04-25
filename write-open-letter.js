@@ -14,7 +14,7 @@ async function submitOpenLetter(event) {
 
 try {
     // We will assume saveOpenLetter is already loaded by the HTML
-    import { saveOpenLetter } from './supabase-db.js';
+    import { saveOpenLetter } from './supabase-db.js'};
 
     if (success) {
       alert('Your letter has been posted! Thank you for sharing with the community.');
