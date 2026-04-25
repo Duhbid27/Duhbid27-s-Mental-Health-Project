@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Write a Named Letter</title>
+    <link rel="stylesheet" href="../../Main Website Files/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">Howard's Journey</div>
+      <nav>
+        <a href="../../Main Website Files/index.html">Home</a>
+        <a href="../../Main Website Files/about.html">About</a>
+        <a href="../../Main Website Files/support.html">Support</a>
+        <a href="../../Main Website Files/guidance.html">Guided Support</a>
+        <a href="../../Main Website Files/resources.html">Resources</a>
+        <a href="../Main Navigation/digital-letters.html">Digital Letters</a>
+      </nav>
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+    </header>
+
+    <main>
+      <section class="panel" id="write-named-letter">
+        <div class="section-header">
+          <span class="section-number">05.4</span>
+          <h2>Write a Named Letter</h2>
+        </div>
+        <p class="section-description">Write a letter addressed to a specific name. Your letter will be discoverable by others searching for that name, creating a beautiful connection between strangers.</p>
+
+        <form class="letter-form" id="namedLetterForm">
+          <div class="form-group">
+            <label for="recipientName">Recipient's Name *</label>
+            <input type="text" id="recipientName" name="recipientName" placeholder="Enter the name this letter is addressed to" required>
+          </div>
+
+          <div class="form-group">
+            <label for="letterContent">Your Letter *</label>
+            <textarea id="letterContent" name="content" rows="12" placeholder="Write your letter here. Be thoughtful and kind - your words might reach someone who really needs them." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="authorName">Your Name (Optional)</label>
+            <input type="text" id="authorName" name="authorName" placeholder="Anonymous (leave blank for anonymity)">
+          </div>
+
+          <div class="form-notice">
+            <p><strong>Note:</strong> This letter will be posted publicly and can be found by anyone searching for the recipient's name. It will not be sent directly to them.</p>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="letter-button secondary" onclick="window.history.back()">Cancel</button>
+            <button type="submit" class="letter-button">Post Letter</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Made with care, honesty, awareness, and a little JavaScript.</p>
+    </footer>
+
+    <script src="../../Main Website Files/script.js"></script>
+    <script src="write-named-letter.js"></script>
+  </body>
+</html></content>
+<parameter name="filePath">/Users/huohuade/Documents/Website:App Making/My Mental Health/write-named-letter.html

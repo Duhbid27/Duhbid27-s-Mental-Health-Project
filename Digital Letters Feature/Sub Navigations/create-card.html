@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Digital Card</title>
+    <link rel="stylesheet" href="../../Main Website Files/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">Howard's Journey</div>
+      <nav>
+        <a href="../../Main Website Files/index.html">Home</a>
+        <a href="../../Main Website Files/about.html">About</a>
+        <a href="../../Main Website Files/support.html">Support</a>
+        <a href="../../Main Website Files/guidance.html">Guided Support</a>
+        <a href="../../Main Website Files/resources.html">Resources</a>
+        <a href="../Main Navigation/digital-letters.html">Digital Letters</a>
+      </nav>
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+    </header>
+
+    <main>
+      <section class="panel" id="create-card">
+        <div class="section-header">
+          <span class="section-number">05.5</span>
+          <h2>Create Digital Card</h2>
+        </div>
+        <p class="section-description">Design an interactive digital greeting card for special occasions. Create something personal and shareable with a unique link.</p>
+
+        <div class="card-creator">
+          <div class="creator-form">
+            <div class="form-group">
+              <label for="cardOccasion">Occasion *</label>
+              <select id="cardOccasion" name="occasion">
+                <option value="birthday">Birthday</option>
+                <option value="get-well">Get Well Soon</option>
+                <option value="thank-you">Thank You</option>
+                <option value="congratulations">Congratulations</option>
+                <option value="encouragement">Encouragement</option>
+                <option value="just-because">Just Because</option>
+                <option value="custom">Custom Occasion</option>
+              </select>
+            </div>
+
+            <div class="form-group" id="customOccasionGroup" style="display: none;">
+              <label for="customOccasion">Custom Occasion</label>
+              <input type="text" id="customOccasion" placeholder="Enter custom occasion">
+            </div>
+
+            <div class="form-group">
+              <label for="cardTheme">Card Theme</label>
+              <select id="cardTheme" name="theme">
+                <option value="warm">Warm & Cozy</option>
+                <option value="bright">Bright & Cheerful</option>
+                <option value="calm">Calm & Peaceful</option>
+                <option value="elegant">Elegant & Simple</option>
+                <option value="playful">Playful & Fun</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="recipientName">Recipient's Name</label>
+              <input type="text" id="recipientName" placeholder="Who is this card for?">
+            </div>
+
+            <div class="form-group">
+              <label for="cardMessage">Your Message *</label>
+              <textarea id="cardMessage" rows="6" placeholder="Write your personal message here..." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="senderName">Your Name</label>
+              <input type="text" id="senderName" placeholder="How should we sign this card?">
+            </div>
+
+            <div class="form-actions">
+              <button class="letter-button" onclick="previewCard()">Preview Card</button>
+              <button class="letter-button" onclick="createCard()">Create Card</button>
+            </div>
+          </div>
+
+          <div class="card-preview" id="cardPreview" style="display: none;">
+            <div class="preview-header">
+              <h3>Card Preview</h3>
+              <button class="close-preview" onclick="closePreview()">×</button>
+            </div>
+            <div class="card-display" id="cardDisplay">
+              <!-- Card will be rendered here -->
+            </div>
+            <div class="card-link" id="cardLink" style="display: none;">
+              <p>Your card link: <input type="text" id="shareableLink" readonly onclick="this.select()"></p>
+              <button class="letter-button secondary" onclick="copyLink()">Copy Link</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Made with care, honesty, awareness, and a little JavaScript.</p>
+    </footer>
+
+    <script src="../../Main Website Files/script.js"></script>
+    <script src="create-card.js"></script>
+  </body>
+</html></content>
+<parameter name="filePath">/Users/huohuade/Documents/Website:App Making/My Mental Health/create-card.html

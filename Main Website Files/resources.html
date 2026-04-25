@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resources</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">Howard’s Journey</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="support.html">Support</a>
+        <a href="guidance.html">Guided Support</a>
+        <a href="resources.html" class="active">Resources</a>
+      </nav>
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+    </header>
+
+    <main>
+      <section class="panel" id="resources">
+        <div class="section-header">
+          <span class="section-number">04</span>
+          <h2>Resources</h2>
+        </div>
+        <div class="project-controls">
+          <button type="button" class="filter active" data-category="all">All</button>
+          <button type="button" class="filter" data-category="routine">Routine</button>
+          <button type="button" class="filter" data-category="tools">Tools</button>
+          <button type="button" class="filter" data-category="network">Network</button>
+        </div>
+        <div class="grid project-grid">
+          <article class="project-card" data-category="routine">
+            <h3>Daily Routine</h3>
+            <p>A simple structure I use to stay grounded, energized, and consistent.</p>
+          </article>
+          <article class="project-card" data-category="tools">
+            <h3>Coping Tools</h3>
+            <p>Practical strategies that help me manage symptoms and stay calm.</p>
+          </article>
+          <article class="project-card" data-category="network">
+            <h3>Support Network</h3>
+            <p>How friends and family can help through listening, check-ins, and encouragement.</p>
+          </article>
+          <article class="project-card" data-category="tools">
+            <a href="../Digital Letters Feature/Main Navigation/digital-letters.html" style="text-decoration: none; color: inherit; display: block;">
+              <h3>Digital Letters</h3>
+              <p>Express thoughts and feelings through various letter formats: public boards for open sharing, name-addressed letters for personal connections, and private greeting cards sent via unique links.</p>
+            </a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Made with care, honesty, awareness, and a little JavaScript.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

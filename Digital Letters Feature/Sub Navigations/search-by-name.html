@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Letters by Name</title>
+    <link rel="stylesheet" href="../../Main Website Files/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">Howard's Journey</div>
+      <nav>
+        <a href="../../Main Website Files/index.html">Home</a>
+        <a href="../../Main Website Files/about.html">About</a>
+        <a href="../../Main Website Files/support.html">Support</a>
+        <a href="../../Main Website Files/guidance.html">Guided Support</a>
+        <a href="../../Main Website Files/resources.html">Resources</a>
+        <a href="../Main Navigation/digital-letters.html">Digital Letters</a>
+      </nav>
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+    </header>
+
+    <main>
+      <section class="panel" id="search-by-name">
+        <div class="section-header">
+          <span class="section-number">05.3</span>
+          <h2>Search Letters by Name</h2>
+        </div>
+        <p class="section-description">Find letters that have been written and addressed to your name. This is like discovering unsent letters meant for you.</p>
+
+        <div class="search-form">
+          <div class="form-group">
+            <label for="searchName">Enter Your Name</label>
+            <input type="text" id="searchName" placeholder="Type your name here..." autocomplete="off">
+            <button class="letter-button" onclick="searchLetters()">Search</button>
+          </div>
+        </div>
+
+        <div id="searchResults" class="search-results" style="display: none;">
+          <h3>Letters found for "<span id="searchedName"></span>"</h3>
+          <div id="lettersList" class="letters-container">
+            <!-- Letters will be populated here -->
+          </div>
+          <div id="noResults" class="no-results" style="display: none;">
+            <p>No letters found with that name. Would you like to <a href="write-named-letter.html">write a letter</a> to someone with this name instead?</p>
+          </div>
+        </div>
+
+        <div class="sample-letters" style="margin-top: 2rem;">
+          <h3>Welcome to Name Search</h3>
+          <p>Enter a name above to search for letters addressed to that person. This feature connects people through heartfelt messages.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Made with care, honesty, awareness, and a little JavaScript.</p>
+    </footer>
+
+    <script src="../../Main Website Files/script.js"></script>
+    <script src="search-by-name.js"></script>
+  </body>
+</html></content>
+<parameter name="filePath">/Users/huohuade/Documents/Website:App Making/My Mental Health/search-by-name.html

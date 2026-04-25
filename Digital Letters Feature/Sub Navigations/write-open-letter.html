@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Write an Open Letter</title>
+    <link rel="stylesheet" href="../../Main Website Files/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">Howard's Journey</div>
+      <nav>
+        <a href="../../Main Website Files/index.html">Home</a>
+        <a href="../../Main Website Files/about.html">About</a>
+        <a href="../../Main Website Files/support.html">Support</a>
+        <a href="../../Main Website Files/guidance.html">Guided Support</a>
+        <a href="../../Main Website Files/resources.html">Resources</a>
+        <a href="../Main Navigation/digital-letters.html">Digital Letters</a>
+      </nav>
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+    </header>
+
+    <main>
+      <section class="panel" id="write-open-letter">
+        <div class="section-header">
+          <span class="section-number">05.2</span>
+          <h2>Write an Open Letter</h2>
+        </div>
+        <p class="section-description">Share your thoughts with the community. Choose a category that best fits your letter, and remember that your words can help others who might be going through similar experiences.</p>
+
+        <form class="letter-form" id="openLetterForm">
+          <div class="form-group">
+            <label for="letterCategory">Category *</label>
+            <select id="letterCategory" name="category" required>
+              <option value="">Select a category</option>
+              <option value="when-down">When Down</option>
+              <option value="gratitude">Gratitude</option>
+              <option value="hope">Hope</option>
+              <option value="reflection">Reflection</option>
+              <option value="encouragement">Encouragement</option>
+              <option value="healing">Healing</option>
+              <option value="other">Other (please specify in letter)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="letterContent">Your Letter *</label>
+            <textarea id="letterContent" name="content" rows="12" placeholder="Write your letter here. Be as open and honest as you feel comfortable being. Your words can make a difference to someone who needs them." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="authorName">Your Name (Optional)</label>
+            <input type="text" id="authorName" name="authorName" placeholder="Anonymous (leave blank for anonymity)">
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="letter-button secondary" onclick="window.history.back()">Cancel</button>
+            <button type="submit" class="letter-button">Post Letter</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Made with care, honesty, awareness, and a little JavaScript.</p>
+    </footer>
+
+    <script src="../../Main Website Files/script.js"></script>
+    <script src="write-open-letter.js"></script>
+  </body>
+</html></content>
+<parameter name="filePath">/Users/huohuade/Documents/Website:App Making/My Mental Health/write-open-letter.html
