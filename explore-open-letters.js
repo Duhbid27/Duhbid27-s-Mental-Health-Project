@@ -2,7 +2,7 @@
 
 async function loadLetters(category = 'all') {
   try {
-    const { getOpenLetters } = await import('../../Data Base/supabase-db.js');
+    const { getOpenLetters } = await import('supabase-db.js');
     const letters = await getOpenLetters(category === 'all' ? null : category);
 
     const lettersContainer = document.querySelector('.letters-container');
