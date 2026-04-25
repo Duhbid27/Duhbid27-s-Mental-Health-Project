@@ -13,7 +13,7 @@ async function submitNamedLetter(event) {
   };
 
   try {
-    const { saveNamedLetter } = await import('../../Data Base/supabase-db.js');
+    const { saveNamedLetter } = await import('supabase-db.js');
 
     const success = await saveNamedLetter(letterData);
 
