@@ -1,14 +1,17 @@
-// Explore Open Letters functionality
+// 1. Move the import to the VERY TOP of the file. No brackets or 'try' blocks around it!
+import { getOpenLetters } from './supabase-db.js';
 
+// Explore Open Letters functionality
 async function loadLetters(category = 'all') {
+  const lettersContainer = document.querySelector('.letters-container');
+  
   try {
-    import { getOpenLetters } from './supabase-db.js';
+    // 2. Call the function directly (no import needed here anymore)
     const letters = await getOpenLetters(category === 'all' ? null : category);
 
-    const lettersContainer = document.querySelector('.letters-container');
     lettersContainer.innerHTML = '';
 
-    if (letters.length === 0) {
+    if (!letters || letters.length === 0) {
       lettersContainer.innerHTML = '<p class="no-letters">No letters found in this category yet. Be the first to share!</p>';
       return;
     }
@@ -33,13 +36,13 @@ async function loadLetters(category = 'all') {
     });
   } catch (error) {
     console.error('Error loading letters:', error);
-    const lettersContainer = document.querySelector('.letters-container');
-    lettersContainer.innerHTML = '<p class="error">Sorry, there was an error loading the letters. Please try again later.</p>';
+    if (lettersContainer) {
+      lettersContainer.innerHTML = '<p class="error">Sorry, there was an error loading the letters. Please try again later.</p>';
+    }
   }
 }
 
 function filterLetters(category) {
-  // This function is now handled by loadLetters
   loadLetters(category);
 }
 
