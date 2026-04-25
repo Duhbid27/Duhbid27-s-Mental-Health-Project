@@ -1,23 +1,23 @@
 // Digital Letters functionality
 
 function openPublicBoard() {
-  window.location.href = '../Sub Navigations/explore-open-letters.html';
+  window.location.href = 'explore-open-letters.html';
 }
 
 function writeOpenLetter() {
-  window.location.href = '../Sub Navigations/write-open-letter.html';
+  window.location.href = 'write-open-letter.html';
 }
 
 function openNameSearch() {
-  window.location.href = '../Sub Navigations/search-by-name.html';
+  window.location.href = 'search-by-name.html';
 }
 
 function writeNamedLetter() {
-  window.location.href = '../Sub Navigations/write-named-letter.html';
+  window.location.href = 'write-named-letter.html';
 }
 
 function createGreetingCard() {
-  window.location.href = '../Sub Navigations/create-card.html';
+  window.location.href = 'create-card.html';
 }
 
 // Initialize digital letters page
