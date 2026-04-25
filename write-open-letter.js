@@ -14,7 +14,7 @@ async function submitOpenLetter(event) {
 
   try {
     // Import the database functions
-    const { saveOpenLetter } = await import('supabase-db.js');
+    const { saveOpenLetter } = await import('./supabase-db.js');
 
     const success = await saveOpenLetter(letterData);
 
