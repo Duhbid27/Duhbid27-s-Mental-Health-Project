@@ -19,7 +19,7 @@ async function searchLetters() {
   lettersList.innerHTML = '<div class="loading">Searching...</div>';
 
   try {
-    const { searchNamedLetters } = await import('../../Data Base/supabase-db.js');
+    const { searchNamedLetters } = await import('supabase-db.js');
     const foundLetters = await searchNamedLetters(searchName);
 
     lettersList.innerHTML = '';
