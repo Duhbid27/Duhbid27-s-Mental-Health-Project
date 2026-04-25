@@ -87,4 +87,4 @@ async function getDigitalCard(cardId) {
     return null;
   }
   return data;
-}};
+};
