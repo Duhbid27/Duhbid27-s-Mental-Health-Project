@@ -7,7 +7,7 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // Open Letters functions
-async function saveOpenLetter(letterData) {
+export async function saveOpenLetter(letterData) {
   const { data, error } = await supabase
     .from('open_letters')
     .insert([letterData]);
@@ -36,7 +36,7 @@ async function getOpenLetters(category = null) {
 }
 
 // Named Letters functions
-async function saveNamedLetter(letterData) {
+export async function saveNamedLetter(letterData) {
   const { data, error } = await supabase
     .from('named_letters')
     .insert([letterData]);
@@ -63,7 +63,7 @@ async function searchNamedLetters(name) {
 }
 
 // Digital Cards functions
-async function saveDigitalCard(cardData) {
+export async function saveDigitalCard(cardData) {
   const { data, error } = await supabase
     .from('digital_cards')
     .insert([cardData]);
