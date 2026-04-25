@@ -38,5 +38,5 @@ document.addEventListener('DOMContentLoaded', function() {
   if (form) {
     form.addEventListener('submit', submitOpenLetter);
   }
-});</content>
+});
 <parameter name="filePath">/Users/huohuade/Documents/Website:App Making/My Mental Health/write-open-letter.js
