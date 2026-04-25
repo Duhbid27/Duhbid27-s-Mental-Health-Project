@@ -19,7 +19,7 @@ export async function saveOpenLetter(letterData) {
   return true;
 }
 
-async function getOpenLetters(category = null) {
+export async function getOpenLetters(category = null) {
   let query = supabase.from('open_letters').select('*').order('created_at', { ascending: false });
 
   if (category && category !== 'all') {
@@ -48,7 +48,7 @@ export async function saveNamedLetter(letterData) {
   return true;
 }
 
-async function searchNamedLetters(name) {
+export async function searchNamedLetters(name) {
   const { data, error } = await supabase
     .from('named_letters')
     .select('*')
@@ -75,7 +75,7 @@ export async function saveDigitalCard(cardData) {
   return data[0];
 }
 
-async function getDigitalCard(cardId) {
+export async function getDigitalCard(cardId) {
   const { data, error } = await supabase
     .from('digital_cards')
     .select('*')
