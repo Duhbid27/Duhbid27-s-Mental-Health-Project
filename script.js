@@ -1,8 +1,5 @@
 const funFacts = [
-  'I enjoy designing micro-interactions that make apps feel alive.',
-  'I often sketch ideas on paper before writing a single line of code.',
-  'I like exploring new libraries and building small experiment projects.',
-  'I prefer simple interfaces with thoughtful motion and clear hierarchy.',
+  'I do not know yet what to put in this field.',
 ];
 
 const themeToggle = document.getElementById('themeToggle');
