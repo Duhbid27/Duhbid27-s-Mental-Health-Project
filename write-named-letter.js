@@ -37,5 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
   if (form) {
     form.addEventListener('submit', submitNamedLetter);
   }
-});</content>
+});
+</content>
 <parameter name="filePath">/Users/huohuade/Documents/Website:App Making/My Mental Health/write-named-letter.js
