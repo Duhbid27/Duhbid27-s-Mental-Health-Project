@@ -87,6 +87,4 @@ async function getDigitalCard(cardId) {
     return null;
   }
   return data;
-}
-
-export { saveOpenLetter, getOpenLetters, saveNamedLetter, searchNamedLetters, saveDigitalCard, getDigitalCard };
+}};
