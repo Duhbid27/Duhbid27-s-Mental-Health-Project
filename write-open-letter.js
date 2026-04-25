@@ -12,17 +12,13 @@ async function submitOpenLetter(event) {
     author_name: formData.get('authorName') || 'Anonymous'
   };
 
-  try {
-    // Import the database functions
-    const { saveOpenLetter } = await import('./supabase-db.js');
-
+try {
+    // We will assume saveOpenLetter is already loaded by the HTML
     const success = await saveOpenLetter(letterData);
 
     if (success) {
       alert('Your letter has been posted! Thank you for sharing with the community.');
       form.reset();
-      // Optionally redirect to explore page
-      // window.location.href = 'explore-open-letters.html';
     } else {
       alert('Sorry, there was an error posting your letter. Please try again.');
     }
