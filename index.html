@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="tl"> <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Howard’s Mental Health Portfolio</title>
@@ -8,39 +7,41 @@
   </head>
   <body>
     <header class="topbar">
-      <div class="brand">Hoie’s Journey</div>
+      <div class="brand" data-i18n="brand">Hoie’s Journey</div>
       <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About</a>
-        <a href="support.html">Support</a>
-        <a href="guidance.html">Guided Support</a>
-        <a href="resources.html">Resources</a>
+        <a href="index.html" class="active" data-i18n="nav_home">Home</a>
+        <a href="about.html" data-i18n="nav_about">About</a>
+        <a href="support.html" data-i18n="nav_support">Support</a>
+        <a href="guidance.html" data-i18n="nav_guidance">Guided Support</a>
+        <a href="resources.html" data-i18n="nav_resources">Resources</a>
       </nav>
-      <button id="themeToggle" class="theme-toggle">🌙</button>
+      <div class="controls">
+        <button id="langToggle" class="lang-toggle">🇻🇳 VI</button>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+      </div>
     </header>
 
     <main>
       <section class="hero" id="home">
         <div>
-          <p class="eyebrow">Welcome</p>
-          <h1>Everyone</h1>
-          <p class="hero-text">
+          <p class="eyebrow" data-i18n="hero_eyebrow">Welcome</p>
+          <h1 data-i18n="hero_title">Everyone</h1>
+          <p class="hero-text" data-i18n="hero_text">
             Sharing my mental health journey so family and friends can better understand my condition, offer support, and raise awareness for others.
           </p>
           <div class="hero-actions">
-            <a class="button" href="about.html">Learn More</a>
-            <button id="showFunFact" class="button secondary">Reveal a fun fact</button>
+            <a class="button" href="about.html" data-i18n="btn_learn">Learn More</a>
+            <button id="showFunFact" class="button secondary" data-i18n="btn_fact">Reveal a fun fact</button>
           </div>
           <div id="funFact" class="fact-card hidden"></div>
         </div>
       </section>
-
     </main>
 
     <footer class="footer">
-      <p>Made with care, honesty, awareness, and a little JavaScript.</p>
+      <p data-i18n="footer_text">Made with care, honesty, awareness, and a little JavaScript.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
