@@ -1,17 +1,17 @@
 export const translations = {
     tl: {
-        brand: "Kwento ni Hoie",
+        brand: "Hoie's Journey",
         nav_home: "Home",
-        nav_about: "Tungkol sa Akin",
-        nav_support: "Suporta",
-        nav_guidance: "Gabay",
+        nav_about: "About",
+        nav_support: "Support",
+        nav_guidance: "Guided Support",
         nav_resources: "Resources",
-        hero_eyebrow: "Tuloy Po Kayo",
-        hero_title: "Sa Inyong Lahat",
-        hero_text: "Ibinabahagi ko ang aking mental health journey para mas maintindihan ng pamilya at mga kaibigan ang aking kalagayan, makapagbigay ng suporta, at makatulong sa iba.",
-        btn_learn: "Alamin Pa",
-        btn_fact: "Trivia Muna",
-        footer_text: "Gawa nang may pag-iingat, katapatan, at konting JavaScript."
+        hero_eyebrow: "Welcome",
+        hero_title: "Everyone",
+        hero_text: "Sharing my mental health journey so family and friends can better understand my condition, offer support, and raise awareness for others.",
+        btn_learn: "Learn More",
+        btn_fact: "Reveal a fun fact",
+        footer_text: "Made with care, honesty, awareness, and a little JavaScript."
     },
     vi: {
         brand: "Hành Trình của Hoie",
