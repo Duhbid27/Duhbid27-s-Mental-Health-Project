@@ -230,47 +230,49 @@ h1, h2 {
     flex-direction: column;
   }
 
-  /* FUN FACT CARD STYLING */
+  /* 7. FUN FACT CARD STYLING */
 .fact-card {
   margin-top: 2rem;
   padding: 1.5rem;
-  background: var(--surface-strong); /* Slightly different background to highlight it */
-  border: 2px dashed var(--accent); /* Dashed border gives it a "discovery" feel */
-  border-radius: 16px;
-  color: var(--text);
-  font-weight: 500;
-  line-height: 1.6;
-  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--accent); /* Accent border to make it pop */
+  border-radius: 20px;
+  box-shadow: 0 10px 30px var(--accent-soft); /* Colored shadow for a "glow" effect */
   
-  /* Entrance Animation */
-  animation: slideDown 0.4s ease-out;
+  max-width: 100%;
+  line-height: 1.6;
+  
+  /* Smooth entrance */
+  animation: cardAppear 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Add a little "tip" or label to the fact card */
 .fact-card::before {
-  content: "💡 Fun Fact";
+  content: "✨ Fun Fact";
   display: block;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 0.5rem;
   font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  letter-spacing: 1px;
 }
 
-/* Animation definition */
-@keyframes slideDown {
+/* Specific text styling inside the fact card */
+.fact-card p {
+  color: var(--text);
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+/* Entrance Animation */
+@keyframes cardAppear {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: scale(0.9) translateY(20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1) translateY(0);
   }
-}
-
-/* Ensure the hidden class actually works */
-.hidden {
-  display: none !important;
 }
 }
