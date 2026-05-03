@@ -229,4 +229,48 @@ h1, h2 {
   .hero-actions {
     flex-direction: column;
   }
+
+  /* FUN FACT CARD STYLING */
+.fact-card {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--surface-strong); /* Slightly different background to highlight it */
+  border: 2px dashed var(--accent); /* Dashed border gives it a "discovery" feel */
+  border-radius: 16px;
+  color: var(--text);
+  font-weight: 500;
+  line-height: 1.6;
+  position: relative;
+  
+  /* Entrance Animation */
+  animation: slideDown 0.4s ease-out;
+}
+
+/* Add a little "tip" or label to the fact card */
+.fact-card::before {
+  content: "💡 Fun Fact";
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+}
+
+/* Animation definition */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ensure the hidden class actually works */
+.hidden {
+  display: none !important;
+}
 }
