@@ -1,5 +1,4 @@
 :root {
-  color-scheme: light;
   --bg: #f4f7fc;
   --surface: #ffffff;
   --surface-strong: #e3ebf6;
@@ -12,7 +11,6 @@
 }
 
 [data-theme='dark'] {
-  color-scheme: dark;
   --bg: #07101e;
   --surface: #0d1725;
   --surface-strong: #142534;
@@ -24,70 +22,52 @@
   --shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
   font-family: Inter, system-ui, sans-serif;
-  background: radial-gradient(circle at top, rgba(83, 109, 254, 0.12), transparent 30%), var(--bg);
+  background: var(--bg);
   color: var(--text);
   min-height: 100vh;
 }
 
-img, button, input, textarea {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-/* --- TOPBAR NAVIGATION --- */
+/* --- TOPBAR LAYOUT --- */
 
 .topbar {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.5rem;
-  backdrop-filter: blur(18px);
-  background: rgba(255, 255, 255, 0.8);
+  padding: 1rem 2rem;
+  background: var(--surface);
   border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
 }
 
-[data-theme='dark'] .topbar {
-  background: rgba(13, 23, 37, 0.9);
-}
-
-/* Flex 1 on both sides forces the nav to the absolute center */
+/* Flex 1 on Brand and Utilities pushes the Nav to the middle */
 .brand {
   font-weight: 700;
+  font-size: 1.2rem;
   flex: 1; 
-  white-space: nowrap;
+  display: flex;
+  justify-content: flex-start;
 }
 
 nav {
   display: flex;
   gap: 1.5rem;
-  flex-wrap: wrap;
+  flex: 2; /* Nav gets more space */
   justify-content: center;
-  flex: 2; 
 }
 
 nav a {
-  color: var(--muted);
   text-decoration: none;
-  transition: color 0.2s ease;
+  color: var(--muted);
   font-weight: 500;
+  transition: color 0.2s;
 }
 
 nav a:hover, nav a.active {
@@ -101,59 +81,49 @@ nav a:hover, nav a.active {
   justify-content: flex-end;
 }
 
-.theme-toggle, .lang-toggle {
+/* --- BUTTONS --- */
+
+.lang-toggle, .theme-toggle {
+  background: var(--surface-strong);
   border: 1px solid var(--border);
-  background: var(--surface);
   color: var(--text);
-  border-radius: 999px;
-  padding: 0.6rem 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
 }
 
-.theme-toggle:hover, .lang-toggle:hover {
+.lang-toggle:hover, .theme-toggle:hover {
   border-color: var(--accent);
-  background: var(--surface-strong);
+  background: var(--accent-soft);
 }
 
-/* --- MAIN CONTENT --- */
+/* --- CONTENT --- */
 
 main {
-  padding: 1.5rem 1.5rem 2rem;
   max-width: 1100px;
   margin: 0 auto;
+  padding: 2rem;
 }
 
 .panel {
   background: var(--surface);
+  padding: 2.5rem;
+  border-radius: 24px;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
-  border-radius: 24px;
-  padding: 2.5rem;
-  margin: 2rem 0;
 }
 
 .section-header {
-  display: flex;
-  align-items: baseline;
-  gap: 0.9rem;
   margin-bottom: 2rem;
 }
 
 .section-number {
   color: var(--accent);
-  font-weight: 700;
-  font-size: 1.2rem;
+  font-weight: 800;
+  margin-right: 0.5rem;
 }
-
-h1 {
-  margin: 0.5rem 0 1rem;
-  font-size: clamp(2.8rem, 5vw, 4.5rem);
-  line-height: 0.95;
-}
-
-/* --- GRID & CARDS --- */
 
 .grid {
   display: grid;
@@ -165,81 +135,34 @@ h1 {
 }
 
 .card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 20px;
   padding: 1.5rem;
-  transition: transform 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--bg);
 }
 
 .card strong {
   display: block;
-  margin-bottom: 0.75rem;
-  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
   color: var(--accent);
 }
 
-/* --- FORMS --- */
-
-.contact-form {
-  display: grid;
-  gap: 1.25rem;
-}
-
-.contact-form label {
-  display: grid;
-  gap: 0.5rem;
-  font-weight: 600;
-}
-
-.contact-form input, .contact-form textarea {
-  width: 100%;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--bg);
-  color: var(--text);
-  padding: 1rem;
-}
-
-.contact-form input:focus, .contact-form textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-soft);
-}
-
-/* --- FOOTER --- */
-
 .footer {
   text-align: center;
+  padding: 3rem;
   color: var(--muted);
-  padding: 3rem 1.5rem;
-  font-size: 0.9rem;
 }
 
 /* --- RESPONSIVE --- */
 
-@media (max-width: 900px) {
+@media (max-width: 950px) {
   .topbar {
     flex-direction: column;
-    padding: 1.5rem;
-    gap: 1.25rem;
-  }
-
-  .brand, nav, .header-utilities {
-    flex: none;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  nav {
     gap: 1rem;
   }
-}
-
-.hidden {
-  display: none;
+  .brand, nav, .header-utilities {
+    justify-content: center;
+    flex: none;
+    width: 100%;
+  }
 }
