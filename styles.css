@@ -49,7 +49,7 @@ button {
   transition: all 0.2s ease;
 }
 
-/* --- TOPBAR & NAVIGATION --- */
+/* --- TOPBAR NAVIGATION --- */
 
 .topbar {
   position: sticky;
@@ -58,7 +58,6 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
   padding: 1rem 1.5rem;
   backdrop-filter: blur(18px);
   background: rgba(255, 255, 255, 0.8);
@@ -69,33 +68,37 @@ button {
   background: rgba(13, 23, 37, 0.9);
 }
 
+/* Flex 1 on both sides forces the nav to the absolute center */
 .brand {
   font-weight: 700;
-  flex-shrink: 0;
+  flex: 1; 
+  white-space: nowrap;
 }
 
 nav {
   display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
-  margin-right: auto; /* Pushes the actions to the far right */
+  justify-content: center;
+  flex: 2; 
 }
 
 nav a {
   color: var(--muted);
   text-decoration: none;
+  transition: color 0.2s ease;
   font-weight: 500;
 }
 
-nav a:hover {
-  color: var(--text);
+nav a:hover, nav a.active {
+  color: var(--accent);
 }
 
-/* NEW: This groups your toggles together */
-.topbar-actions {
+.header-utilities {
   display: flex;
-  align-items: center;
-  gap: 0.75rem; /* The specific distance between your toggles */
+  gap: 0.75rem;
+  flex: 1;
+  justify-content: flex-end;
 }
 
 .theme-toggle, .lang-toggle {
@@ -106,8 +109,7 @@ nav a:hover {
   padding: 0.6rem 1rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  white-space: nowrap;
+  gap: 0.5rem;
 }
 
 .theme-toggle:hover, .lang-toggle:hover {
@@ -115,7 +117,7 @@ nav a:hover {
   background: var(--surface-strong);
 }
 
-/* --- MAIN LAYOUT & HERO --- */
+/* --- MAIN CONTENT --- */
 
 main {
   padding: 1.5rem 1.5rem 2rem;
@@ -123,20 +125,26 @@ main {
   margin: 0 auto;
 }
 
-.hero {
-  display: grid;
-  padding: 4rem 0;
-  align-items: center;
-  gap: 1.75rem;
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  border-radius: 24px;
+  padding: 2.5rem;
+  margin: 2rem 0;
 }
 
-.eyebrow {
-  margin: 0;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.section-number {
   color: var(--accent);
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1.2rem;
 }
 
 h1 {
@@ -145,91 +153,65 @@ h1 {
   line-height: 0.95;
 }
 
-.hero-text {
-  max-width: 60ch;
-  line-height: 1.8;
-  color: var(--muted);
-  font-size: 1.1rem;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.button {
-  border: none;
-  border-radius: 999px;
-  padding: 0.95rem 1.8rem;
-  background: var(--accent);
-  color: white;
-  font-weight: 600;
-  box-shadow: 0 10px 20px rgba(83, 109, 254, 0.2);
-}
-
-.button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 30px rgba(83, 109, 254, 0.3);
-}
-
-.button.secondary {
-  background: var(--surface);
-  color: var(--text);
-  border: 1px solid var(--border);
-  box-shadow: none;
-}
-
-/* --- CARDS & PANELS --- */
-
-.fact-card, .panel, .card, .project-card, .contact-form, .letter-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  border-radius: 24px;
-  padding: 1.5rem;
-}
+/* --- GRID & CARDS --- */
 
 .grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.cards {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 1.5rem;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card strong {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+/* --- FORMS --- */
+
+.contact-form {
   display: grid;
   gap: 1.25rem;
 }
 
-.cards {
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-}
-
-/* --- FORM ELEMENTS --- */
-
-.form-group {
-  margin-bottom: 1.5rem;
-  display: flex;
-  flex-direction: column;
+.contact-form label {
+  display: grid;
   gap: 0.5rem;
-}
-
-.form-group label {
   font-weight: 600;
-  color: var(--text);
 }
 
-.form-group input, .form-group textarea, .form-group select {
+.contact-form input, .contact-form textarea {
   width: 100%;
-  padding: 0.85rem 1rem;
   border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--bg);
   color: var(--text);
+  padding: 1rem;
 }
 
-.form-group input:focus, .form-group textarea:focus {
+.contact-form input:focus, .contact-form textarea:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 4px var(--accent-soft);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
-/* --- FOOTER & UTILS --- */
+/* --- FOOTER --- */
 
 .footer {
   text-align: center;
@@ -238,25 +220,26 @@ h1 {
   font-size: 0.9rem;
 }
 
-.hidden { display: none; }
-
 /* --- RESPONSIVE --- */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .topbar {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
+    padding: 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .brand, nav, .header-utilities {
+    flex: none;
+    justify-content: center;
+    width: 100%;
   }
   
   nav {
-    margin: 0;
-    justify-content: center;
+    gap: 1rem;
   }
+}
 
-  .topbar-actions {
-    width: 100%;
-    justify-content: center;
-  }
+.hidden {
+  display: none;
 }
