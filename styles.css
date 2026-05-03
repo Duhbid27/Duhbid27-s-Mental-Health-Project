@@ -1,3 +1,4 @@
+/* 1. VARIABLE DEFINITIONS */
 :root {
   --bg: #f4f7fc;
   --surface: #ffffff;
@@ -22,89 +23,98 @@
   --shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
 }
 
-* { box-sizing: border-box; }
+/* 2. RESET & BASE STYLES */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  margin: 0;
-  font-family: Inter, system-ui, sans-serif;
-  background: var(--bg);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg);
   color: var(--text);
+  line-height: 1.6;
   min-height: 100vh;
 }
 
-/* --- TOPBAR LAYOUT --- */
-
+/* 3. TOPBAR LAYOUT (The Centering Logic) */
 .topbar {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
+  padding: 0.75rem 2rem;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
 }
 
-/* Flex 1 on Brand and Utilities pushes the Nav to the middle */
+/* Side A: Brand */
 .brand {
+  flex: 1; /* Takes up 1 unit of space */
   font-weight: 700;
-  font-size: 1.2rem;
-  flex: 1; 
-  display: flex;
-  justify-content: flex-start;
+  font-size: 1.25rem;
+  color: var(--text);
+  white-space: nowrap;
 }
 
+/* Middle: Navigation */
 nav {
+  flex: 2; /* Takes up double the space to ensure centering */
   display: flex;
-  gap: 1.5rem;
-  flex: 2; /* Nav gets more space */
   justify-content: center;
+  gap: 1.5rem;
 }
 
 nav a {
   text-decoration: none;
   color: var(--muted);
   font-weight: 500;
-  transition: color 0.2s;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
 }
 
 nav a:hover, nav a.active {
   color: var(--accent);
 }
 
+/* Side B: Buttons Grouped Together */
 .header-utilities {
+  flex: 1; /* Takes up 1 unit of space, matching the Brand */
   display: flex;
-  gap: 0.75rem;
-  flex: 1;
   justify-content: flex-end;
+  gap: 0.75rem; /* This keeps your toggles close to each other */
 }
 
-/* --- BUTTONS --- */
-
+/* 4. BUTTON DESIGN */
 .lang-toggle, .theme-toggle {
   background: var(--surface-strong);
   border: 1px solid var(--border);
   color: var(--text);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.85rem;
   border-radius: 50px;
   cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
   display: flex;
   align-items: center;
+  transition: all 0.2s ease;
 }
 
 .lang-toggle:hover, .theme-toggle:hover {
   border-color: var(--accent);
   background: var(--accent-soft);
+  transform: translateY(-1px);
 }
 
-/* --- CONTENT --- */
-
+/* 5. CONTENT AREA */
 main {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 3rem 1.5rem;
 }
 
 .panel {
@@ -116,53 +126,75 @@ main {
 }
 
 .section-header {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .section-number {
   color: var(--accent);
   font-weight: 800;
+  font-size: 1.1rem;
   margin-right: 0.5rem;
 }
 
+h2 {
+  font-size: 2rem;
+  display: inline;
+}
+
+/* 6. GRID & CARDS */
 .grid {
   display: grid;
   gap: 1.5rem;
 }
 
 .cards {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .card {
-  padding: 1.5rem;
-  border: 1px solid var(--border);
-  border-radius: 16px;
+  padding: 1.75rem;
   background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  transition: border-color 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--accent);
 }
 
 .card strong {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   color: var(--accent);
+  font-size: 1.1rem;
 }
 
+/* 7. FOOTER */
 .footer {
   text-align: center;
-  padding: 3rem;
+  padding: 4rem 1.5rem;
   color: var(--muted);
+  font-size: 0.9rem;
 }
 
-/* --- RESPONSIVE --- */
-
-@media (max-width: 950px) {
+/* 8. RESPONSIVE DESIGN */
+@media (max-width: 900px) {
   .topbar {
     flex-direction: column;
-    gap: 1rem;
+    padding: 1.5rem;
+    gap: 1.25rem;
   }
+
   .brand, nav, .header-utilities {
-    justify-content: center;
     flex: none;
     width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  nav {
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 }
