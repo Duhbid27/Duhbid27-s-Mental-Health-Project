@@ -1,64 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="tl">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resources</title>
+    <title>Resources | Hoie’s Journey</title>
+    <!-- 1. Font Link for the Playfair/Inter aesthetic -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+</head>
+<body>
     <header class="topbar">
-      <div class="brand">Howard’s Journey</div>
+      <div class="brand" data-i18n="brand">Hoie’s Journey</div>
+      
       <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="support.html">Support</a>
-        <a href="guidance.html">Guided Support</a>
-        <a href="resources.html" class="active">Resources</a>
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="about.html" data-i18n="nav_about">About</a>
+        <a href="support.html" data-i18n="nav_support">Support</a>
+        <a href="guidance.html" data-i18n="nav_guidance">Guided Support</a>
+        <a href="resources.html" class="active" data-i18n="nav_resources">Resources</a>
       </nav>
-      <button id="themeToggle" class="theme-toggle">🌙</button>
+
+      <!-- 2. Controls wrapper for perfect centering -->
+      <div class="controls">
+        <button id="langToggle" class="lang-toggle">🇻🇳 VI</button>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+      </div>
     </header>
 
     <main>
       <section class="panel" id="resources">
         <div class="section-header">
           <span class="section-number">04</span>
-          <h2>Resources</h2>
-          <p>I will be updating this soon.</p>
+          <h2 data-i18n="res_title">Resources</h2>
+          <p data-i18n="res_subtitle">I will be updating this soon.</p>
         </div>
+
+        <!-- 3. Project Filter Controls -->
         <div class="project-controls">
-          <button type="button" class="filter active" data-category="all">All</button>
-          <button type="button" class="filter" data-category="routine">Routine</button>
-          <button type="button" class="filter" data-category="tools">Tools</button>
-          <button type="button" class="filter" data-category="network">Network</button>
+          <button type="button" class="filter active" data-category="all" data-i18n="filter_all">All</button>
+          <button type="button" class="filter" data-category="routine" data-i18n="filter_routine">Routine</button>
+          <button type="button" class="filter" data-category="tools" data-i18n="filter_tools">Tools</button>
+          <button type="button" class="filter" data-category="network" data-i18n="filter_network">Network</button>
         </div>
+
+        <!-- 4. The Grid of Resource Cards -->
         <div class="grid project-grid">
-          <article class="project-card" data-category="routine">
-            <h3>Daily Routine</h3>
-            <p>A simple structure I use to stay grounded, energized, and consistent.</p>
+          
+          <article class="project-card card" data-category="routine">
+            <h3 data-i18n="res_card1_title">Daily Routine</h3>
+            <p data-i18n="res_card1_text">A simple structure I use to stay grounded, energized, and consistent.</p>
           </article>
-          <article class="project-card" data-category="tools">
-            <h3>Coping Tools</h3>
-            <p>Practical strategies that help me manage symptoms and stay calm.</p>
+
+          <article class="project-card card" data-category="tools">
+            <h3 data-i18n="res_card2_title">Coping Tools</h3>
+            <p data-i18n="res_card2_text">Practical strategies that help me manage symptoms and stay calm.</p>
           </article>
-          <article class="project-card" data-category="network">
-            <h3>Support Network</h3>
-            <p>How friends and family can help through listening, check-ins, and encouragement.</p>
+
+          <article class="project-card card" data-category="network">
+            <h3 data-i18n="res_card3_title">Support Network</h3>
+            <p data-i18n="res_card3_text">How friends and family can help through listening, check-ins, and encouragement.</p>
           </article>
-          <article class="project-card" data-category="tools">
+
+          <article class="project-card card" data-category="tools">
             <a href="digital-letters.html" style="text-decoration: none; color: inherit; display: block;">
-              <h3>Digital Letters</h3>
-              <p>Express thoughts and feelings through various letter formats: public boards for open sharing, name-addressed letters for personal connections, and private greeting cards sent via unique links.</p>
+              <h3 data-i18n="res_card4_title">Digital Letters</h3>
+              <p data-i18n="res_card4_text">Express thoughts and feelings through various letter formats: public boards for open sharing, name-addressed letters for personal connections, and private greeting cards.</p>
             </a>
           </article>
+
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <p>Made with care, honesty, awareness, and a little JavaScript.</p>
+      <p data-i18n="footer_text">Made with care, honesty, awareness, and a little JavaScript.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- 5. Added type="module" to fix the translation/theme logic -->
+    <script type="module" src="script.js"></script>
   </body>
 </html>

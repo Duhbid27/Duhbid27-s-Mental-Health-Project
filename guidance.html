@@ -1,63 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="tl">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guided Support</title>
+    <title>Guided Support | Hoie’s Journey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+</head>
+<body>
     <header class="topbar">
-      <div class="brand">Howard’s Journey</div>
+      <div class="brand" data-i18n="brand">Hoie’s Journey</div>
+      
       <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="support.html">Support</a>
-        <a href="guidance.html" class="active">Guided Support</a>
-        <a href="resources.html">Resources</a>
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="about.html" data-i18n="nav_about">About</a>
+        <a href="support.html" data-i18n="nav_support">Support</a>
+        <a href="guidance.html" class="active" data-i18n="nav_guidance">Guided Support</a>
+        <a href="resources.html" data-i18n="nav_resources">Resources</a>
       </nav>
-      <button id="themeToggle" class="theme-toggle">🌙</button>
+
+      <div class="controls">
+        <button id="langToggle" class="lang-toggle">🇻🇳 VI</button>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+      </div>
     </header>
 
     <main>
       <section class="panel" id="guidance">
         <div class="section-header">
           <span class="section-number">03</span>
-          <h2>Guided Support</h2>
+          <h2 data-i18n="guidance_title">Guided Support</h2>
         </div>
-        <p>
+        
+        <p data-i18n="guidance_intro">
           I can be a little slow with my feelings. When I seem off, these behavior cues and supportive actions help me most.
         </p>
-        <p>I will be updating this soon.</p>
-        <div class="grid cards">
+        
+        <div class="grid bipolar-explanation">
+          
           <article class="card">
-            <strong>Feeling overwhelmed</strong>
-            <p><strong>Behavior:</strong> I may withdraw, speak quickly, or seem distracted.</p>
-            <p><strong>What helps:</strong> Give me space to breathe, ask if I want help, and remind me it's okay to pause.</p>
+            <strong data-i18n="guide_q1">Feeling overwhelmed</strong>
+            <p>
+              <b data-i18n="label_behavior">Behavior:</b> 
+              <span data-i18n="guide_b1">I may withdraw, speak quickly, or seem distracted.</span>
+            </p>
+            <p>
+              <b data-i18n="label_helps">What helps:</b> 
+              <span data-i18n="guide_h1">Give me space to breathe, ask if I want help, and remind me it's okay to pause.</span>
+            </p>
           </article>
+
           <article class="card">
-            <strong>Feeling anxious</strong>
-            <p><strong>Behavior:</strong> I may fidget, repeat myself, or struggle to focus.</p>
-            <p><strong>What helps:</strong> Listen without pressure, offer a calm distraction, and ask what small step would help most.</p>
+            <strong data-i18n="guide_q2">Feeling anxious</strong>
+            <p>
+              <b data-i18n="label_behavior">Behavior:</b> 
+              <span data-i18n="guide_b2">I may fidget, repeat myself, or struggle to focus.</span>
+            </p>
+            <p>
+              <b data-i18n="label_helps">What helps:</b> 
+              <span data-i18n="guide_h2">Listen without pressure, offer a calm distraction, and ask what small step would help most.</span>
+            </p>
           </article>
+
           <article class="card">
-            <strong>Feeling low</strong>
-            <p><strong>Behavior:</strong> I may seem quiet, slow to respond, or appear unmotivated.</p>
-            <p><strong>What helps:</strong> Check in gently, show kindness, and encourage rest or a walk without trying to fix everything.</p>
+            <strong data-i18n="guide_q3">Feeling low</strong>
+            <p>
+              <b data-i18n="label_behavior">Behavior:</b> 
+              <span data-i18n="guide_b3">I may seem quiet, slow to respond, or appear unmotivated.</span>
+            </p>
+            <p>
+              <b data-i18n="label_helps">What helps:</b> 
+              <span data-i18n="guide_h3">Check in gently, show kindness, and encourage rest or a walk without trying to fix everything.</span>
+            </p>
           </article>
+
           <article class="card">
-            <strong>Feeling irritable</strong>
-            <p><strong>Behavior:</strong> I may snap, avoid conversation, or seem easily frustrated.</p>
-            <p><strong>What helps:</strong> Respect my need for quiet, avoid arguments, and let me know you'll be there when I’m ready to talk.</p>
+            <strong data-i18n="guide_q4">Feeling irritable</strong>
+            <p>
+              <b data-i18n="label_behavior">Behavior:</b> 
+              <span data-i18n="guide_b4">I may snap, avoid conversation, or seem easily frustrated.</span>
+            </p>
+            <p>
+              <b data-i18n="label_helps">What helps:</b> 
+              <span data-i18n="guide_h4">Respect my need for quiet, avoid arguments, and let me know you'll be there when I’m ready to talk.</span>
+            </p>
           </article>
+
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <p>Made with care, honesty, awareness, and a little JavaScript.</p>
+      <p data-i18n="footer_text">Made with care, honesty, awareness, and a little JavaScript.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>

@@ -1,67 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="tl">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About me</title>
+    <title>About Me | Hoie’s Journey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
-  </head>
-<header class="topbar">
-  <div class="brand">Hoie’s Journey</div>
-  
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html" class="active">About</a>
-    <a href="support.html">Support</a>
-    <a href="guidance.html">Guided Support</a>
-    <a href="resources.html">Resources</a>
-  </nav> <div class="header-utilities">
-    <button id="langToggle" class="lang-toggle">🇻🇳 VI</button>
-    <button id="themeToggle" class="theme-toggle">🌙</button>
-  </div>
-</header>
+</head>
+<body>
+    <header class="topbar">
+      <div class="brand" data-i18n="brand">Hoie’s Journey</div>
+      
+      <nav>
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="about.html" class="active" data-i18n="nav_about">About</a>
+        <a href="support.html" data-i18n="nav_support">Support</a>
+        <a href="guidance.html" data-i18n="nav_guidance">Guided Support</a>
+        <a href="resources.html" data-i18n="nav_resources">Resources</a>
+      </nav>
+
+      <div class="controls">
+        <button id="langToggle" class="lang-toggle">🇻🇳 VI</button>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+      </div>
+    </header>
 
     <main>
       <section class="panel" id="about">
         <div class="section-header">
           <span class="section-number">01</span>
-          <h2>About</h2>
-          <p>I will be updating this soon</p>
+          <h2 data-i18n="about_title">About</h2>
+          <p data-i18n="about_subtitle">I will be updating this soon</p>
         </div>
-        <div class="grid cards">
+
+        <div class="grid bipolar-explanation"> <!-- 4. Used the new grid class from our CSS -->
+          
           <article class="card">
-            <strong>Sino ako?</strong>
-            <p> Ako si Hoie. Nadiagnosed ako with Bipolar 1 Disorder with Psychotic Features. This website ay way ko of explaining what I experience, para maghelp sa family and friends maintindihan nila how to support me. Also, ang website na ito ay para ipabatid sa iba kung ano ang mga kinakaharap naming mga may mental health disorder.</p>
+            <strong data-i18n="about_q1">Sino ako?</strong>
+            <p data-i18n="about_a1">Ako si Hoie. Nadiagnosed ako with Bipolar 1 Disorder with Psychotic Features. This website ay way ko of explaining what I experience...</p>
           </article>
+
           <article class="card">
-            <strong>Ano ang Bipolar Disorder?</strong>
-            <p> Ang bipolar disorder isang mental health condition kung saan ang emosyon ng isang tao ay parang isang extreme rollercoaster. Hindi lang ito 'yung simpleng "moody" na masaya ngayon tapos mamaya ay galit; mas malalim at mas matagal ang bawat "phase" nito.</p>
+            <strong data-i18n="about_q2">Ano ang Bipolar Disorder?</strong>
+            <p data-i18n="about_a2">Ang bipolar disorder isang mental health condition kung saan ang emosyon ng isang tao ay parang isang extreme rollercoaster...</p>
           </article>
-          <article class="card">
-            <strong> Ang "High" (Mania)</strong>
-            <p> Dito, sobrang taas ng energy ng tao. Hindi lang ito basta pagiging masayahin or hyper, overdrive ito.</p>
+
+          <article class="card mania-card"> <!-- 5. Added special mania class -->
+            <strong data-i18n="mania_title">Ang "High" (Mania)</strong>
+            <p data-i18n="mania_desc">Dito, sobrang taas ng energy ng tao. Hindi lang ito basta pagiging masayahin or hyper, overdrive ito.</p>
             <ul>
-              <li><span> Pakiramdam nila ay "on top of the world" sila o punong-puno ng self-confidence.</span></li>
-              <li><span> Mabilis sila magsalita (racing thoughts), hindi makatulog pero hindi napapagod, at minsan ay nagiging padalos-dalos (tulad ng sobrang paggastos).</span></li>
-              <li><span> Parang naka-kape nang sobra-sobra o laging naka-set sa "fast forward" ang utak.</span></li>
+              <li data-i18n="mania_feeling">Pakiramdam nila ay "on top of the world" sila...</li>
+              <li data-i18n="mania_actions">Mabilis sila magsalita, hindi makatulog pero hindi napapagod...</li>
+              <li data-i18n="mania_vibe">Parang naka-kape nang sobra-sobra...</li>
             </ul>
           </article>
-          <article class="card">
-            <strong>Ano ang Depression o "Low"?</strong>
-            <p> Pagkatapos ng high, madalas ay may "crash." Dito pumapasok ang matinding lungkot.</p>
+
+          <article class="card depression-card"> <!-- 6. Added special depression class -->
+            <strong data-i18n="depression_title">Ano ang Depression o "Low"?</strong>
+            <p data-i18n="depression_desc">Pagkatapos ng high, madalas ay may "crash." Dito pumapasok ang matinding lungkot.</p>
             <ul>
-              <li><span> Sobrang pagod, walang pag-asa, at walang gana sa mga bagay na dati nilang gustong gawin.</span></li>
-              <li><span>Hirap bumangon sa kama, laging gustong matulog, o minsan ay hindi makakain.</span></li>
-              <li><span>Pakiramdam ay mabigat ang buong katawan at parang naka-stop ang mundo.</span></li>
+              <li data-i18n="depression_feeling">Sobrang pagod, walang pag-asa...</li>
+              <li data-i18n="depression_actions">Hirap bumangon sa kama, laging gustong matulog...</li>
+              <li data-i18n="depression_vibe">Pakiramdam ay mabigat ang buong katawan...</li>
             </ul>
           </article>
-          <article class="card"><strong>About Psychotic Features</strong></article>
+
+          <article class="card">
+            <strong data-i18n="about_psychotic_title">About Psychotic Features</strong>
+            <p data-i18n="about_psychotic_desc">Updating soon...</p>
+          </article>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <p>Made with care, honesty, awareness, and a little JavaScript.</p>
+      <p data-i18n="footer_text">Made with care, honesty, awareness, and a little JavaScript.</p>
     </footer>
 
     <script type="module" src="script.js"></script>

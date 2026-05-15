@@ -7,7 +7,7 @@ function applyTranslations(lang) {
   document.querySelectorAll('[data-i18n]').forEach((element) => {
     const key = element.getAttribute('data-i18n');
     if (translations[lang] && translations[lang][key]) {
-      // If it's an input/textarea, translate the placeholder
+      // If it's an input or textarea, translate the placeholder
       if (element.tagName === 'TEXTAREA' || element.tagName === 'INPUT') {
         element.placeholder = translations[lang][key];
       } else {
@@ -19,28 +19,29 @@ function applyTranslations(lang) {
   // Update the button label to show the NEXT language option
   const langToggle = document.getElementById('langToggle');
   if (langToggle) {
+    // If current is Taglish, button shows Vietnam flag. If current is VI, shows PH flag.
     langToggle.textContent = lang === 'tl' ? '🇻🇳 VI' : '🇵🇭 TL';
   }
   
-  // Update the HTML lang attribute for accessibility/SEO
   document.documentElement.lang = lang;
 }
 
 // --- 2. Fun Facts (Translated) ---
-// I've moved these to an object so they change with the language toggle
 const funFacts = {
   tl: [
     'Hindi ko pa alam ang ilalagay dito.',
-    'Nag-aaral ako ngayon ng Vietnamese!'
+    'Nag-aaral ako ngayon ng Vietnamese!',
+    'Mahilig ako sa kulay blue!'
   ],
   vi: [
     'Tôi chưa biết nên đặt gì vào trường này.',
-    'Tôi đang học tiếng Việt!'
+    'Tôi đang học tiếng Việt!',
+    'Tôi thích màu xanh dương!'
   ]
 };
 
 function randomFact() {
-  const facts = funFacts[currentLang];
+  const facts = funFacts[currentLang] || funFacts['tl']; // Fallback to Taglish
   const index = Math.floor(Math.random() * facts.length);
   return facts[index];
 }
@@ -55,13 +56,18 @@ const projectCards = document.querySelectorAll('.project-card');
 
 // --- 4. Core Functions ---
 function showFunFact() {
-  funFactCard.textContent = randomFact();
-  funFactCard.classList.remove('hidden');
+  if (funFactCard) {
+    funFactCard.textContent = randomFact();
+    funFactCard.classList.remove('hidden');
+  }
 }
 
 function setTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
-  themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+  if (themeToggle) {
+    // ☁️ matches your sky blue theme for light mode, 🌙 for dark mode
+    themeToggle.textContent = theme === 'dark' ? '☀️' : '☁️'; 
+  }
   localStorage.setItem('portfolioTheme', theme);
 }
 
@@ -79,27 +85,29 @@ function filterProjects(category) {
 
 // --- 5. Event Listeners ---
 
-// Theme
-themeToggle.addEventListener('click', toggleTheme);
+// Theme Toggle
+if (themeToggle) {
+  themeToggle.addEventListener('click', toggleTheme);
+}
 
-// Language
+// Language Toggle
 if (langToggle) {
   langToggle.addEventListener('click', () => {
     currentLang = currentLang === 'tl' ? 'vi' : 'tl';
     localStorage.setItem('preferredLang', currentLang);
     applyTranslations(currentLang);
     
-    // Hide fun fact when switching languages so it doesn't look weird
+    // Hide fun fact when switching languages to refresh the text
     if (funFactCard) funFactCard.classList.add('hidden');
   });
 }
 
-// Fun Fact
+// Fun Fact Button
 if (showFunFactButton) {
   showFunFactButton.addEventListener('click', showFunFact);
 }
 
-// Project Filters
+// Project Filters (For Resources Page)
 filterButtons.forEach((button) => {
   button.addEventListener('click', () => {
     filterButtons.forEach((btn) => btn.classList.remove('active'));
@@ -108,7 +116,7 @@ filterButtons.forEach((button) => {
   });
 });
 
-// --- 6. Initialization (Run when page loads) ---
+// --- 6. Initialization ---
 const savedTheme = localStorage.getItem('portfolioTheme') || 'light';
 setTheme(savedTheme);
 applyTranslations(currentLang);
