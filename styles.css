@@ -1,26 +1,31 @@
 /* 1. VARIABLE DEFINITIONS */
 :root {
-  --bg: #f4f7fc;
+  /* Scholarly Light Theme */
+  --bg: #f8f5f0; /* Paper-like cream */
   --surface: #ffffff;
-  --surface-strong: #e3ebf6;
-  --text: #102a43;
-  --muted: #486581;
-  --accent: #536dfe;
-  --accent-soft: #d1d8ff;
-  --border: rgba(16, 42, 67, 0.12);
-  --shadow: 0 18px 45px rgba(16, 42, 67, 0.08);
+  --surface-strong: #f1ede6;
+  --text: #1a1a1a;
+  --muted: #5a5a5a;
+  --accent: #2c3e50; /* Deep scholarly blue */
+  --accent-soft: #d1d8e0;
+  --border: rgba(0, 0, 0, 0.1);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  
+  /* Specific Card Colors */
+  --mania-border: #d4af37; /* Gold */
+  --depression-border: #4a69bd; /* Deep blue */
 }
 
 [data-theme='dark'] {
-  --bg: #07101e;
-  --surface: #0d1725;
-  --surface-strong: #142534;
-  --text: #e7edf8;
-  --muted: #a3b3d3;
-  --accent: #7c9dff;
-  --accent-soft: #2a3d63;
-  --border: rgba(231, 237, 248, 0.08);
-  --shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+  --bg: #121212;
+  --surface: #1e1e1e;
+  --surface-strong: #2a2a2a;
+  --text: #e0e0e0;
+  --muted: #a0a0a0;
+  --accent: #ecf0f1;
+  --accent-soft: #34495e;
+  --border: rgba(255, 255, 255, 0.1);
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* 2. RESET & BASE STYLES */
@@ -31,11 +36,18 @@
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  /* Mixing Inter for UI and a Serif for that "Dark Academia" feel */
+  font-family: 'Inter', system-ui, sans-serif;
   background-color: var(--bg);
   color: var(--text);
   line-height: 1.6;
   min-height: 100vh;
+  transition: background-color 0.3s ease;
+}
+
+h1, h2, h3, .brand {
+  font-family: 'Playfair Display', serif; /* Use Google Fonts to import this */
+  font-weight: 700;
 }
 
 /* 3. TOPBAR LAYOUT */
@@ -44,189 +56,164 @@ body {
   top: 0;
   z-index: 1000;
   display: flex;
+  flex-wrap: wrap; /* Allows wrapping on small screens */
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 2rem;
+  padding: 1rem 5%;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(10px);
 }
 
 .brand {
-  flex: 1;
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: var(--text);
-  white-space: nowrap;
+  font-size: 1.5rem;
+  color: var(--accent);
 }
 
 nav {
-  flex: 2;
   display: flex;
-  justify-content: center;
   gap: 1.5rem;
+  margin: 0.5rem 0;
 }
 
 nav a {
   text-decoration: none;
   color: var(--muted);
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   transition: color 0.2s ease;
 }
 
 nav a:hover, nav a.active {
   color: var(--accent);
+  border-bottom: 2px solid var(--accent);
 }
 
-.header-utilities {
-  flex: 1;
+.controls {
   display: flex;
-  justify-content: flex-end;
   gap: 0.75rem;
 }
 
-/* 4. BUTTON & TOGGLE DESIGN */
+/* 4. BUTTONS & TOGGLES */
 .lang-toggle, .theme-toggle, .button {
-  border: 1px solid var(--border);
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
+  border: 1px solid var(--border);
+  border-radius: 8px; /* More "book-like" than pills */
+  padding: 0.5rem 1rem;
   font-family: inherit;
-  text-decoration: none;
-}
-
-.lang-toggle, .theme-toggle {
-  background: var(--surface-strong);
+  transition: all 0.2s ease;
+  background: var(--surface);
   color: var(--text);
-  padding: 0.5rem 0.85rem;
-  border-radius: 50px;
-  font-size: 0.85rem;
-  font-weight: 600;
 }
 
 .button {
   background: var(--accent);
-  color: white;
-  padding: 0.8rem 1.5rem;
-  border-radius: 999px;
+  color: var(--surface);
   font-weight: 600;
-  border: none;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
 }
 
 .button.secondary {
-  background: var(--surface);
-  color: var(--text);
-  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
 }
 
-.button:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.1);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* 5. CONTENT AREA & PANELS */
+/* 5. HERO & MAIN CONTENT */
 main {
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 3rem 1.5rem;
+  padding: 2rem 1.5rem;
 }
 
-/* This is what makes the Hero and About section look the same */
 .panel, .hero {
   background: var(--surface);
-  padding: 2.5rem;
-  border-radius: 24px;
+  padding: clamp(1.5rem, 5vw, 3rem);
+  border-radius: 12px;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
   margin-bottom: 2rem;
 }
 
-.section-header {
-  margin-bottom: 2.5rem;
-}
-
-.section-number, .eyebrow {
+.eyebrow {
   color: var(--accent);
-  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  font-weight: 700;
 }
 
-h1, h2 {
-  font-size: clamp(2rem, 5vw, 2.5rem);
-  margin-bottom: 1rem;
-  line-height: 1.2;
-}
-
-.hero-text {
-  color: var(--muted);
-  max-width: 600px;
-  margin-bottom: 2rem;
+h1 {
+  font-size: clamp(2.2rem, 8vw, 3.5rem);
+  line-height: 1.1;
+  margin: 1rem 0;
 }
 
 .hero-actions {
   display: flex;
   gap: 1rem;
+  margin-top: 2rem;
 }
 
-/* 6. GRID & CARDS */
-.grid {
+/* 6. CARDS & GRID (For Bipolar Explanation) */
+.bipolar-explanation {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
-}
-
-.cards {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 2rem;
 }
 
 .card {
-  padding: 1.75rem;
-  background: var(--bg);
+  padding: 2rem;
+  background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 20px;
-  transition: border-color 0.3s ease;
+  border-radius: 8px;
+  position: relative;
+  transition: transform 0.3s ease;
 }
 
-.card strong {
-  display: block;
-  margin-bottom: 0.75rem;
-  color: var(--accent);
-  font-size: 1.1rem;
+.mania-card { border-top: 5px solid var(--mania-border); }
+.depression-card { border-top: 5px solid var(--depression-border); }
+
+.card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
 }
 
-/* 7. FOOTER & UTILS */
-.footer {
-  text-align: center;
-  padding: 4rem 1.5rem;
-  color: var(--muted);
-  font-size: 0.9rem;
+.card ul {
+  list-style: none;
+  margin-top: 1rem;
 }
 
-.hidden { display: none; }
+.card li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
 
-/* 8. RESPONSIVE DESIGN */
-@media (max-width: 900px) {
+/* 7. RESPONSIVE DESIGN (The Mobile Polish) */
+@media (max-width: 768px) {
   .topbar {
-    flex-direction: column;
-    padding: 1.5rem;
-    gap: 1.25rem;
-  }
-
-  .brand, nav, .header-utilities {
-    flex: none;
-    width: 100%;
     justify-content: center;
     text-align: center;
   }
-  
+
+  nav {
+    order: 3; /* Moves nav to the bottom of the topbar on mobile */
+    width: 100%;
+    justify-content: center;
+    overflow-x: auto; /* Allows swiping if links are too many */
+    padding-bottom: 0.5rem;
+  }
+
   .hero-actions {
-    flex-direction: column;
+    flex-direction: column; /* Stacks buttons on mobile */
+  }
+
+  .button {
+    width: 100%;
   }
 }
+
+.hidden { display: none; }
