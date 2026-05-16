@@ -1,68 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="tl">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Write a Named Letter</title>
+    <title>Write a Named Letter | Hoie’s Journey</title>
+    <!-- Font Link for consistent typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+</head>
+<body>
     <header class="topbar">
-      <div class="brand">Hoie's Journey</div>
+      <div class="brand" data-i18n="brand">Hoie’s Journey</div>
+      
       <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="support.html">Support</a>
-        <a href="guidance.html">Guided Support</a>
-        <a href="resources.html">Resources</a>
-        <a href="digital-letters.html">Digital Letters</a>
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="about.html" data-i18n="nav_about">About</a>
+        <a href="support.html" data-i18n="nav_support">Support</a>
+        <a href="guidance.html" data-i18n="nav_guidance">Guided Support</a>
+        <a href="resources.html" data-i18n="nav_resources">Resources</a>
+        <a href="digital-letters.html" class="active" data-i18n="nav_letters">Digital Letters</a>
       </nav>
-      <button id="themeToggle" class="theme-toggle">🌙</button>
+
+      <!-- Centralized controls layout alignment -->
+      <div class="controls">
+        <button id="langToggle" class="lang-toggle">🇻🇳 VI</button>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+      </div>
     </header>
 
     <main>
       <section class="panel" id="write-named-letter">
         <div class="section-header">
           <span class="section-number">05.4</span>
-          <h2>Write a Named Letter</h2>
+          <h2 data-i18n="write_named_title">Write a Named Letter</h2>
         </div>
-        <p class="section-description">Write a letter addressed to a specific name. Your letter will be discoverable by others searching for that name, creating a beautiful connection between strangers.</p>
-        <p>This is not yet available. I will be updating this soon.</p>
+        <p class="section-description" data-i18n="write_named_desc">Write a letter addressed to a specific name. Your letter will be discoverable by others searching for that name, creating a beautiful connection between strangers.</p>
+        <p class="status-notice" data-i18n="write_named_status">This is not yet available. I will be updating this soon.</p>
 
         <form class="letter-form" id="namedLetterForm">
           <div class="form-group">
-            <label for="recipientName">Recipient's Name *</label>
-            <input type="text" id="recipientName" name="recipientName" placeholder="Enter the name this letter is addressed to" required>
+            <label for="recipientName" data-i18n="label_recipient">Recipient's Name *</label>
+            <input type="text" id="recipientName" name="recipientName" data-i18n="placeholder_recipient" placeholder="Enter the name this letter is addressed to" required>
           </div>
 
           <div class="form-group">
-            <label for="letterContent">Your Letter *</label>
-            <textarea id="letterContent" name="content" rows="12" placeholder="Write your letter here. Be thoughtful and kind - your words might reach someone who really needs them." required></textarea>
+            <label for="letterContent" data-i18n="label_letter">Your Letter *</label>
+            <textarea id="letterContent" name="content" rows="12" data-i18n="placeholder_named_textarea" placeholder="Write your letter here. Be thoughtful and kind - your words might reach someone who really needs them." required></textarea>
           </div>
 
           <div class="form-group">
-            <label for="authorName">Your Name (Optional)</label>
-            <input type="text" id="authorName" name="authorName" placeholder="Anonymous (leave blank for anonymity)">
+            <label for="authorName" data-i18n="label_author">Your Name (Optional)</label>
+            <input type="text" id="authorName" name="authorName" data-i18n="placeholder_author" placeholder="Anonymous (leave blank for anonymity)">
           </div>
 
-          <div class="form-notice">
+          <!-- Styled notice message box layout -->
+          <div class="form-notice" data-i18n="notice_named_text">
             <p><strong>Note:</strong> This letter will be posted publicly and can be found by anyone searching for the recipient's name. It will not be sent directly to them.</p>
           </div>
 
           <div class="form-actions">
-            <button type="button" class="letter-button secondary" onclick="window.history.back()">Cancel</button>
-            <button type="submit" class="letter-button">Post Letter</button>
+            <button type="button" class="letter-button secondary" onclick="window.history.back()" data-i18n="btn_cancel">Cancel</button>
+            <button type="submit" class="letter-button" data-i18n="btn_post">Post Letter</button>
           </div>
         </form>
       </section>
     </main>
 
     <footer class="footer">
-      <p>Made with care, honesty, awareness, and a little JavaScript.</p>
+      <p data-i18n="footer_text">Made with care, honesty, awareness, and a little JavaScript.</p>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="write-named-letter.js"></script>
+    <!-- Initialized as module targets to ensure global storage handles updates seamlessly -->
+    <script type="module" src="script.js"></script>
+    <script type="module" src="write-named-letter.js"></script>
   </body>
-</html></content>
-<parameter name="filePath">/Users/huohuade/Documents/Website:App Making/My Mental Health/write-named-letter.html
+</html>

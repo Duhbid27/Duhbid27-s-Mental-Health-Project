@@ -1,65 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="tl">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Search Letters by Name</title>
+    <title>Search Letters by Name | Hoie’s Journey</title>
+    <!-- Font Link for consistent system typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+</head>
+<body>
     <header class="topbar">
-      <div class="brand">Hoie's Journey</div>
+      <div class="brand" data-i18n="brand">Hoie’s Journey</div>
+      
       <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="support.html">Support</a>
-        <a href="guidance.html">Guided Support</a>
-        <a href="resources.html">Resources</a>
-        <a href="digital-letters.html">Digital Letters</a>
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="about.html" data-i18n="nav_about">About</a>
+        <a href="support.html" data-i18n="nav_support">Support</a>
+        <a href="guidance.html" data-i18n="nav_guidance">Guided Support</a>
+        <a href="resources.html" data-i18n="nav_resources">Resources</a>
+        <a href="digital-letters.html" class="active" data-i18n="nav_letters">Digital Letters</a>
       </nav>
-      <button id="themeToggle" class="theme-toggle">🌙</button>
+
+      <!-- Centralized utilities wrapper for layout balance -->
+      <div class="controls">
+        <button id="langToggle" class="lang-toggle">🇻🇳 VI</button>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+      </div>
     </header>
 
     <main>
       <section class="panel" id="search-by-name">
         <div class="section-header">
           <span class="section-number">05.3</span>
-          <h2>Search Letters by Name</h2>
+          <h2 data-i18n="search_title">Search Letters by Name</h2>
         </div>
-        <p class="section-description">Find letters that have been written and addressed to your name. This is like discovering unsent letters meant for you.</p>
-        <p>This is not yet available. I will be updating this soon.</p>
+        <p class="section-description" data-i18n="search_desc">Find letters that have been written and addressed to your name. This is like discovering unsent letters meant for you.</p>
+        <p class="status-notice" data-i18n="search_status">This is not yet available. I will be updating this soon.</p>
 
         <div class="search-form">
           <div class="form-group">
-            <label for="searchName">Enter Your Name</label>
-            <input type="text" id="searchName" placeholder="Type your name here..." autocomplete="off">
-            <button class="letter-button" onclick="searchLetters()">Search</button>
+            <label for="searchName" data-i18n="label_search_input">Enter Your Name</label>
+            <!-- Wrapper added here to allow fine-tuned button layouts -->
+            <div class="search-input-group">
+              <input type="text" id="searchName" data-i18n="placeholder_search_input" placeholder="Type your name here..." autocomplete="off">
+              <button class="letter-button" onclick="searchLetters()" data-i18n="btn_search">Search</button>
+            </div>
           </div>
         </div>
 
         <div id="searchResults" class="search-results" style="display: none;">
-          <h3>Letters found for "<span id="searchedName"></span>"</h3>
+          <h3>
+            <span data-i18n="search_results_heading">Letters found for</span> 
+            "<span id="searchedName"></span>"
+          </h3>
           <div id="lettersList" class="letters-container">
-            <!-- Letters will be populated here -->
+            <!-- Letters will be populated here dynamically via script -->
           </div>
           <div id="noResults" class="no-results" style="display: none;">
-            <p>No letters found with that name. Would you like to <a href="write-named-letter.html">write a letter</a> to someone with this name instead?</p>
+            <p>
+              <span data-i18n="search_no_results">No letters found with that name. Would you like to</span> 
+              <a href="write-named-letter.html" data-i18n="link_write_instead">write a letter</a> 
+              <span data-i18n="search_no_results_end">to someone with this name instead?</span>
+            </p>
           </div>
         </div>
 
-        <div class="sample-letters" style="margin-top: 2rem;">
-          <h3>Welcome to Name Search</h3>
-          <p>Enter a name above to search for letters addressed to that person. This feature connects people through heartfelt messages.</p>
+        <div class="sample-letters card">
+          <h3 data-i18n="search_welcome_title">Welcome to Name Search</h3>
+          <p data-i18n="search_welcome_desc">Enter a name above to search for letters addressed to that person. This feature connects people through heartfelt messages.</p>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <p>Made with care, honesty, awareness, and a little JavaScript.</p>
+      <p data-i18n="footer_text">Made with care, honesty, awareness, and a little JavaScript.</p>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="search-by-name.js"></script>
+    <!-- Enabled type module chains to guarantee dynamic theme updates across sessions -->
+    <script type="module" src="script.js"></script>
+    <script type="module" src="search-by-name.js"></script>
   </body>
-</html></content>
-<parameter name="filePath">/Users/huohuade/Documents/Website:App Making/My Mental Health/search-by-name.html
+</html>

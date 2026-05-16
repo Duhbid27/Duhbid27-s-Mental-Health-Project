@@ -1,74 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="tl">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Write an Open Letter</title>
+    <title>Write an Open Letter | Hoie’s Journey</title>
+    <!-- Font Link for consistent typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+</head>
+<body>
     <header class="topbar">
-      <div class="brand">Hoie's Journey</div>
+      <div class="brand" data-i18n="brand">Hoie’s Journey</div>
+      
       <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="support.html">Support</a>
-        <a href="guidance.html">Guided Support</a>
-        <a href="resources.html">Resources</a>
-        <a href="digital-letters.html">Digital Letters</a>
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="about.html" data-i18n="nav_about">About</a>
+        <a href="support.html" data-i18n="nav_support">Support</a>
+        <a href="guidance.html" data-i18n="nav_guidance">Guided Support</a>
+        <a href="resources.html" data-i18n="nav_resources">Resources</a>
+        <a href="digital-letters.html" class="active" data-i18n="nav_letters">Digital Letters</a>
       </nav>
-      <button id="themeToggle" class="theme-toggle">🌙</button>
+
+      <!-- Controls container for centralized navbar system -->
+      <div class="controls">
+        <button id="langToggle" class="lang-toggle">🇻🇳 VI</button>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+      </div>
     </header>
 
     <main>
       <section class="panel" id="write-open-letter">
         <div class="section-header">
           <span class="section-number">05.2</span>
-          <h2>Write an Open Letter</h2>
+          <h2 data-i18n="write_title">Write an Open Letter</h2>
         </div>
-        <p class="section-description">Share your thoughts with the community. Choose a category that best fits your letter, and remember that your words can help others who might be going through similar experiences.</p>
+        <p class="section-description" data-i18n="write_desc">Share your thoughts with the community. Choose a category that best fits your letter, and remember that your words can help others who might be going through similar experiences.</p>
 
         <form class="letter-form" id="openLetterForm">
           <div class="form-group">
-            <label for="letterCategory">Category *</label>
+            <label for="letterCategory" data-i18n="label_category">Category *</label>
             <select id="letterCategory" name="category" required>
-              <option value="">Select a category</option>
-              <option value="when-down">When Down</option>
-              <option value="gratitude">Gratitude</option>
-              <option value="hope">Hope</option>
-              <option value="reflection">Reflection</option>
-              <option value="encouragement">Encouragement</option>
-              <option value="healing">Healing</option>
-              <option value="other">Other (please specify in letter)</option>
+              <option value="" data-i18n="opt_select">Select a category</option>
+              <option value="when-down" data-i18n="filter_down">When Down</option>
+              <option value="gratitude" data-i18n="filter_gratitude">Gratitude</option>
+              <option value="hope" data-i18n="filter_hope">Hope</option>
+              <option value="reflection" data-i18n="filter_reflection">Reflection</option>
+              <option value="encouragement" data-i18n="filter_encouragement">Encouragement</option>
+              <option value="healing" data-i18n="filter_healing">Healing</option>
+              <option value="other" data-i18n="filter_other">Other (please specify in letter)</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label for="letterContent">Your Letter *</label>
-            <textarea id="letterContent" name="content" rows="12" placeholder="Write your letter here. Be as open and honest as you feel comfortable being. Your words can make a difference to someone who needs them." required></textarea>
+            <label for="letterContent" data-i18n="label_letter">Your Letter *</label>
+            <!-- Data tag handles dynamic placeholder translations inside script.js -->
+            <textarea id="letterContent" name="content" rows="12" data-i18n="placeholder_textarea" placeholder="Write your letter here. Be as open and honest as you feel comfortable being. Your words can make a difference to someone who needs them." required></textarea>
           </div>
 
           <div class="form-group">
-            <label for="authorName">Your Name (Optional)</label>
-            <input type="text" id="authorName" name="authorName" placeholder="Anonymous (leave blank for anonymity)">
+            <label for="authorName" data-i18n="label_author">Your Name (Optional)</label>
+            <input type="text" id="authorName" name="authorName" data-i18n="placeholder_author" placeholder="Anonymous (leave blank for anonymity)">
           </div>
 
           <div class="form-actions">
-            <button type="button" class="letter-button secondary" onclick="window.history.back()">Cancel</button>
-            <button type="submit" class="letter-button">Post Letter</button>
+            <button type="button" class="letter-button secondary" onclick="window.history.back()" data-i18n="btn_cancel">Cancel</button>
+            <button type="submit" class="letter-button" data-i18n="btn_post">Post Letter</button>
           </div>
         </form>
       </section>
     </main>
 
     <footer class="footer">
-      <p>Made with care, honesty, awareness, and a little JavaScript.</p>
+      <p data-i18n="footer_text">Made with care, honesty, awareness, and a little JavaScript.</p>
     </footer>
 
+    <!-- Supabase and operational scripts organized logically -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script type="module" src="supabase-db.js"></script>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
     <script type="module" src="write-open-letter.js"></script>
   </body>
-</html></content>
-<parameter name="filePath">/Users/huohuade/Documents/Website:App Making/My Mental Health/write-open-letter.html
+</html>

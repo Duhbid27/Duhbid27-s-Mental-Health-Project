@@ -1,62 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="tl">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digital Letters</title>
+    <title>Digital Letters | Hoie’s Journey</title>
+    <!-- Font Link for the Playfair/Inter aesthetic -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+</head>
+<body>
     <header class="topbar">
-      <div class="brand">Hoie's Journey</div>
+      <div class="brand" data-i18n="brand">Hoie’s Journey</div>
+      
       <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="support.html">Support</a>
-        <a href="guidance.html">Guided Support</a>
-        <a href="resources.html">Resources</a>
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="about.html" data-i18n="nav_about">About</a>
+        <a href="support.html" data-i18n="nav_support">Support</a>
+        <a href="guidance.html" data-i18n="nav_guidance">Guided Support</a>
+        <a href="resources.html" data-i18n="nav_resources">Resources</a>
       </nav>
-      <button id="themeToggle" class="theme-toggle">🌙</button>
+
+      <!-- Controls wrapper for perfect menu centering -->
+      <div class="controls">
+        <button id="langToggle" class="lang-toggle">🇻🇳 VI</button>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+      </div>
     </header>
 
     <main>
       <section class="panel" id="digital-letters">
         <div class="section-header">
           <span class="section-number">05</span>
-          <h2>Digital Letters</h2>
+          <h2 data-i18n="letters_title">Digital Letters</h2>
         </div>
-        <p class="section-description">Express your thoughts and feelings through different letter formats designed for various levels of sharing and connection.</p>
+        <p class="section-description" data-i18n="letters_desc">Express your thoughts and feelings through different letter formats designed for various levels of sharing and connection.</p>
 
         <div class="grid project-grid">
-          <article class="project-card letter-option" data-type="public">
-            <h3>Open Letters</h3>
-            <p>Share letters on a public board for anyone to read. No specific receiver needed - perfect for general encouragement, reflections, or community support.</p>
-            <button class="letter-button" data-action="explore-open">Explore Open Letters</button>
-            <button class="letter-button secondary" data-action="write-open">Write an Open Letter</button>
+          
+          <article class="project-card card letter-option" data-type="public">
+            <h3 data-i18n="letters_open_title">Open Letters</h3>
+            <p data-i18n="letters_open_desc">Share letters on a public board for anyone to read. No specific receiver needed - perfect for general encouragement, reflections, or community support.</p>
+            <button class="letter-button" data-action="explore-open" data-i18n="btn_explore_open">Explore Open Letters</button>
+            <button class="letter-button secondary" data-action="write-open" data-i18n="btn_write_open">Write an Open Letter</button>
           </article>
 
-          <article class="project-card letter-option" data-type="named">
-            <h3>Name-Addressed Letters</h3>
-            <p>Write letters addressed to specific names or search for letters written for you. A personal way to connect with others who share your name or to express thoughts to someone specific.</p>
-            <button class="letter-button" data-action="search-name">Search by Name</button>
-            <button class="letter-button secondary" data-action="write-named">Write a Letter</button>
+          <article class="project-card card letter-option" data-type="named">
+            <h3 data-i18n="letters_named_title">Name-Addressed Letters</h3>
+            <p data-i18n="letters_named_desc">Write letters addressed to specific names or search for letters written for you. A personal way to connect with others who share your name.</p>
+            <button class="letter-button" data-action="search-name" data-i18n="btn_search_name">Search by Name</button>
+            <button class="letter-button secondary" data-action="write-named" data-i18n="btn_write_named">Write a Letter</button>
           </article>
 
-          <article class="project-card letter-option" data-type="private">
-            <h3>Private Greeting Cards</h3>
-            <p>Create personalized digital greeting cards for special occasions. Send unique links to specific recipients - only they can access and read your message.</p>
-            <button class="letter-button" data-action="create-card">Create Card</button>
+          <article class="project-card card letter-option" data-type="private">
+            <h3 data-i18n="letters_private_title">Private Greeting Cards</h3>
+            <p data-i18n="letters_private_desc">Create personalized digital greeting cards for special occasions. Send unique links to specific recipients - only they can access and read your message.</p>
+            <button class="letter-button" data-action="create-card" data-i18n="btn_create_card">Create Card</button>
           </article>
+
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <p>Made with care, honesty, awareness, and a little JavaScript.</p>
+      <p data-i18n="footer_text">Made with care, honesty, awareness, and a little JavaScript.</p>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="digital-letters.js"></script>
+    <!-- Initialized as modules to keep translation and theme switching intact -->
+    <script type="module" src="script.js"></script>
+    <script type="module" src="digital-letters.js"></script>
   </body>
-</html></content>
-<parameter name="filePath">/Users/huohuade/Documents/Website:App Making/My Mental Health/digital-letters.html
+</html>

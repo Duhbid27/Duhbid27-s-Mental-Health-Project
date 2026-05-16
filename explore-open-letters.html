@@ -1,59 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="tl">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Explore Open Letters</title>
+    <title>Explore Open Letters | Hoie’s Journey</title>
+    <!-- Font Link for consistent typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+</head>
+<body>
     <header class="topbar">
-      <div class="brand">Hoie's Journey</div>
+      <div class="brand" data-i18n="brand">Hoie’s Journey</div>
+      
       <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="support.html">Support</a>
-        <a href="guidance.html">Guided Support</a>
-        <a href="resources.html">Resources</a>
-        <a href="digital-letters.html">Digital Letters</a>
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="about.html" data-i18n="nav_about">About</a>
+        <a href="support.html" data-i18n="nav_support">Support</a>
+        <a href="guidance.html" data-i18n="nav_guidance">Guided Support</a>
+        <a href="resources.html" data-i18n="nav_resources">Resources</a>
+        <a href="digital-letters.html" class="active" data-i18n="nav_letters">Digital Letters</a>
       </nav>
-      <button id="themeToggle" class="theme-toggle">🌙</button>
+
+      <!-- Controls wrapper for identical menu centering -->
+      <div class="controls">
+        <button id="langToggle" class="lang-toggle">🇻🇳 VI</button>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+      </div>
     </header>
 
     <main>
       <section class="panel" id="explore-open-letters">
         <div class="section-header">
           <span class="section-number">05.1</span>
-          <h2>Explore Open Letters</h2>
+          <h2 data-i18n="explore_title">Explore Open Letters</h2>
         </div>
-        <p class="section-description">Read letters shared by the community. These open letters are here to inspire, comfort, and connect with others.</p>
+        <p class="section-description" data-i18n="explore_desc">Read letters shared by the community. These open letters are here to inspire, comfort, and connect with others.</p>
 
+        <!-- Category Filters styled to match project controls -->
         <div class="category-filters">
-          <button class="filter active" data-category="all">All</button>
-          <button class="filter" data-category="when-down">When Down</button>
-          <button class="filter" data-category="gratitude">Gratitude</button>
-          <button class="filter" data-category="hope">Hope</button>
-          <button class="filter" data-category="reflection">Reflection</button>
-          <button class="filter" data-category="uncategorised">Uncategorised</button>
+          <button class="filter active" data-category="all" data-i18n="filter_all">All</button>
+          <button class="filter" data-category="when-down" data-i18n="filter_down">When Down</button>
+          <button class="filter" data-category="gratitude" data-i18n="filter_gratitude">Gratitude</button>
+          <button class="filter" data-category="hope" data-i18n="filter_hope">Hope</button>
+          <button class="filter" data-category="reflection" data-i18n="filter_reflection">Reflection</button>
+          <button class="filter" data-category="uncategorised" data-i18n="filter_uncategorized">Uncategorised</button>
         </div>
 
         <div class="letters-container">
           <!-- Letters will be loaded dynamically from database -->
-          <div class="loading">Loading letters...</div>
+          <div class="loading" data-i18n="loading_text">Loading letters...</div>
         </div>
 
+        <!-- Styled Load More Button Section -->
         <div class="load-more">
-          <button class="letter-button">Load More Letters</button>
+          <button class="letter-button" data-i18n="btn_load_more">Load More Letters</button>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <p>Made with care, honesty, awareness, and a little JavaScript.</p>
+      <p data-i18n="footer_text">Made with care, honesty, awareness, and a little JavaScript.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Changed script to module to fix translation logic chain -->
+    <script type="module" src="script.js"></script>
     <script type="module" src="explore-open-letters.js"></script>
   </body>
-</html></content>
-<parameter name="filePath">/Users/huohuade/Documents/Website:App Making/My Mental Health/explore-open-letters.html
+</html>
