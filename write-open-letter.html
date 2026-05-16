@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Write an Open Letter | Hoie’s Journey</title>
-    <!-- Font Link for consistent typography -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
 </head>
@@ -21,7 +20,6 @@
         <a href="digital-letters.html" class="active" data-i18n="nav_letters">Digital Letters</a>
       </nav>
 
-      <!-- Controls container for centralized navbar system -->
       <div class="controls">
         <button id="langToggle" class="lang-toggle">🇻🇳 VI</button>
         <button id="themeToggle" class="theme-toggle">🌙</button>
@@ -41,17 +39,15 @@
             <label for="letterCategory" data-i18n="label_category">Category *</label>
             <select id="letterCategory" name="category" required>
               <option value="" data-i18n="opt_select">Select a category</option>
-              <option value="when-down" data-i18n="filter_down">Feeling Sad</option>
-              <option value="gratitude" data-i18n="filter_gratitude">Feeling Lonely</option>
-              <option value="hope" data-i18n="filter_hope">Feeling Hopeless</option>
-              <option value="encouragement" data-i18n="filter_encouragement">Feeling Helpless</option>
-              <option value="other" data-i18n="filter_other">Other (please specify in letter)</option>
+              <option value="feeling-sad" data-i18n="filter_sad">Feeling Sad</option>
+              <option value="feeling-lonely" data-i18n="filter_lonely">Feeling Lonely</option>
+              <option value="feeling-hopeless" data-i18n="filter_hopeless">Feeling Hopeless</option>
+              <option value="feeling-helpless" data-i18n="filter_helpless">Feeling Helpless</option>
             </select>
           </div>
 
           <div class="form-group">
             <label for="letterContent" data-i18n="label_letter">Your Letter *</label>
-            <!-- Data tag handles dynamic placeholder translations inside script.js -->
             <textarea id="letterContent" name="content" rows="12" data-i18n="placeholder_textarea" placeholder="Write your letter here. Be as open and honest as you feel comfortable being. Your words can make a difference to someone who needs them." required></textarea>
           </div>
 
@@ -72,7 +68,6 @@
       <p data-i18n="footer_text">Made with care, honesty, awareness, and a little JavaScript.</p>
     </footer>
 
-    <!-- Operational scripts organized logically without Supabase dependencies -->
     <script type="module" src="script.js"></script>
     <script type="module" src="write-open-letter.js"></script>
   </body>

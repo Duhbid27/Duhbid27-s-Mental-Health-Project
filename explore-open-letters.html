@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Explore Open Letters | Hoie’s Journey</title>
-    <!-- Font Link for consistent typography -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
 </head>
@@ -21,7 +20,6 @@
         <a href="digital-letters.html" class="active" data-i18n="nav_letters">Digital Letters</a>
       </nav>
 
-      <!-- Controls wrapper for identical menu centering -->
       <div class="controls">
         <button id="langToggle" class="lang-toggle">🇻🇳 VI</button>
         <button id="themeToggle" class="theme-toggle">🌙</button>
@@ -36,22 +34,18 @@
         </div>
         <p class="section-description" data-i18n="explore_desc">Read letters shared by the community. These open letters are here to inspire, comfort, and connect with others.</p>
 
-        <!-- Category Filters fully synchronized with the write options -->
         <div class="category-filters">
           <button class="filter active" data-category="all" data-i18n="filter_all">All</button>
-          <button class="filter" data-category="when-down" data-i18n="filter_down">Feeling Sad</button>
-          <button class="filter" data-category="gratitude" data-i18n="filter_gratitude">Feeling Lonely</button>
-          <button class="filter" data-category="hope" data-i18n="filter_hope">Feeling Hopeless</button>
-          <button class="filter" data-category="reflection" data-i18n="filter_reflection">Feeling Helpless</button>
-          <button class="filter" data-category="other" data-i18n="filter_other">Other</button>
+          <button class="filter" data-category="feeling-sad" data-i18n="filter_sad">Feeling Sad</button>
+          <button class="filter" data-category="feeling-lonely" data-i18n="filter_lonely">Feeling Lonely</button>
+          <button class="filter" data-category="feeling-hopeless" data-i18n="filter_hopeless">Feeling Hopeless</button>
+          <button class="filter" data-category="feeling-helpless" data-i18n="filter_helpless">Feeling Helpless</button>
         </div>
 
         <div class="letters-container">
-          <!-- Letters will be loaded dynamically from database -->
           <div class="loading" data-i18n="loading_text">Loading letters...</div>
         </div>
 
-        <!-- Styled Load More Button Section (Can be used for pagination later) -->
         <div class="load-more">
           <button id="loadMoreBtn" class="letter-button" data-i18n="btn_load_more">Load More Letters</button>
         </div>
@@ -62,7 +56,6 @@
       <p data-i18n="footer_text">Made with care, honesty, awareness, and a little JavaScript.</p>
     </footer>
 
-    <!-- Changed script to module to fix translation logic chain -->
     <script type="module" src="script.js"></script>
     <script type="module" src="explore-open-letters.js"></script>
   </body>
