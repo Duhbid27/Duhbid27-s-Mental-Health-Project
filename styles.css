@@ -16,10 +16,6 @@
   --accent: #4a90e2; 
   --border: rgba(255, 255, 255, 0.4);
   --shadow: 0 12px 30px rgba(74, 144, 226, 0.15);
-  
-  /* Bipolar Card Colors */
-  --mania-color: #f1c40f;
-  --depression-color: #34495e;
 }
 
 [data-theme='dark'] {
