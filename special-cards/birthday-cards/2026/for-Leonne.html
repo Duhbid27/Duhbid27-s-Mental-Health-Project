@@ -23,6 +23,73 @@
             perspective: 1000px;
         }
 
+        /* --- New Stage 0: Password Gate Overlay --- */
+        #password-stage {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f7ebe1;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .lock-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            text-align: center;
+            max-width: 360px;
+            width: 90%;
+            border: 1px solid #f0f0f0;
+            cursor: default; /* Stops body pointer behavior inside the input frame */
+        }
+
+        .lock-box h3 {
+            color: #4a4a4a;
+            margin-bottom: 0.5rem;
+        }
+
+        .lock-box input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #f0f0f0;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            text-align: center;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .lock-box input:focus {
+            border-color: #ffafbd;
+        }
+
+        .unlock-btn {
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(255, 175, 189, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .unlock-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(255, 175, 189, 0.4);
+        }
+
         /* --- Stage 1: Birthday Cake --- */
         #cake-stage {
             display: flex;
@@ -128,7 +195,6 @@
         }
 
         .card-container.open {
-            /* FIXED: Changed from px to deg so the browser can compute the 3D flip cleanly */
             transform: rotateX(10deg) rotateY(-180deg);
         }
 
@@ -238,6 +304,17 @@
 </head>
 <body>
 
+    <div id="password-stage">
+        <div class="lock-box" onclick="event.stopPropagation()">
+            <span style="font-size: 3rem; display: block; margin-bottom: 0.5rem;">🔒</span>
+            <h3>Private Access</h3>
+            <p style="font-size: 0.85rem; color: #888; margin-bottom: 1.5rem;">This card is locked. Enter the special code to open Leonne's card.</p>
+            <input type="password" id="cardPassword" placeholder="Type password here..." autocomplete="off">
+            <button class="unlock-btn" onclick="checkPassword(event)">Unlock Card</button>
+            <p id="password-error" style="color: #d96a7b; font-size: 0.85rem; margin-top: 12px; display: none; font-weight: 500;">Oops! Wrong code. Try again! 🤔</p>
+        </div>
+    </div>
+
     <div id="cake-stage">
         <div class="cake">
             <div class="candle">
@@ -265,8 +342,9 @@
                 <div class="content-layer hidden" id="letter-layer">
                     <div class="letter-content">
                         <h3>Happy Birthday, Leonne!</h3>
-                        <p>blah blah blah</p>
-                        <div class="signature">Love lots, Hoie</div>
+                        <p>Wishing you a wonderful day filled with love, laughter, and everything your heart desires.</p>
+                        <p>Thank you for being such an incredible person and bringing so much joy into the world.</p>
+                        <div class="signature">With love, [Your Name]</div>
                     </div>
                 </div>
 
@@ -276,17 +354,52 @@
     </div>
 
     <script>
-        let currentStep = 0;
+        // Track the current progression step
+        // -1 = Locked, 0 = Cake, 1 = Folded Card, 2 = Open Card (Showing Photo), 3 = Showing Letter
+        let currentStep = -1;
 
+        const passStage = document.getElementById('password-stage');
         const cakeStage = document.getElementById('cake-stage');
         const cardStage = document.getElementById('card-stage');
         const card = document.getElementById('birthday-card');
         const photoLayer = document.getElementById('photo-layer');
         const letterLayer = document.getElementById('letter-layer');
 
+        // Step 0: Check Password Solution
+        window.checkPassword = function(event) {
+            event.stopPropagation();
+            const inputField = document.getElementById('cardPassword');
+            const errorText = document.getElementById('password-error');
+            
+            // 📝 PALITAN MO ITO: Dito isusulat ang sikretong password para kay Leonne
+            const SECRET_PASSWORD = "leonne_birthday_2026"; 
+
+            if (inputField.value === SECRET_PASSWORD) {
+                errorText.style.display = 'none';
+                passStage.style.opacity = '0';
+                passStage.style.transform = 'scale(1.05)';
+                
+                setTimeout(() => {
+                    passStage.style.display = 'none';
+                    currentStep = 0; // Unlocks Stage 1 (Cake) sequence successfully
+                }, 600);
+            } else {
+                errorText.style.display = 'block';
+                inputField.value = '';
+                inputField.focus();
+            }
+        }
+
+        // Allow unlocking by pressing 'Enter' key directly in input text field
+        document.getElementById('cardPassword').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                window.checkPassword(e);
+            }
+        });
+
         // Step 1: Blow out candle
         window.blowCandle = function(event) {
-            event.stopPropagation(); // Prevents global body click from firing during the cake sequence
+            event.stopPropagation(); 
             
             document.getElementById('flame').style.display = 'none';
             document.getElementById('cake-instruction').innerText = "Make a wish!";
@@ -299,7 +412,7 @@
                     
                     setTimeout(() => {
                         cardStage.style.opacity = '1';
-                        currentStep = 1; // Unlocks the global click trigger safely
+                        currentStep = 1; 
                     }, 50);
                 }, 800);
             }, 1000);
@@ -308,12 +421,10 @@
         // Global click handler to progress stages 2, 3, and 4
         document.body.addEventListener('click', () => {
             if (currentStep === 1) {
-                // Step 2 -> Step 3: Flip card open to reveal image layer
                 card.classList.remove('folded');
                 card.classList.add('open');
                 currentStep = 2;
             } else if (currentStep === 2) {
-                // Step 3 -> Step 4: Hide image layout layer and crossfade into the letter text
                 photoLayer.classList.add('hidden');
                 letterLayer.classList.remove('hidden');
                 currentStep = 3;
