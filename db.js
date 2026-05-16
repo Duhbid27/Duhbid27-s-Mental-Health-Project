@@ -1,6 +1,6 @@
 // --- DATABASE CONFIGURATION ---
 // Paste your copied Google Web App URL here!
-const API_URL = "https://script.google.com/macros/s/AKfycbxCnu63aI9ByNgpyk62H81DJ6BvCFFoe2p_ycLjybg5ESer9CQrXPv8nH574crl5oOPcw/exec"; 
+const API_URL = "https://script.google.com/macros/s/AKfycbyJJ1SaG4k4g_0x9ZiTBWQpcpYzKs-eXniH_gkM2IfVzerCIhHA2lrjJ38Ju_S3rkSlGg/exec"; 
 
 export const DB = {
   // Read open letters
