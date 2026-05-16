@@ -36,14 +36,16 @@
         </div>
         <p class="section-description" data-i18n="explore_desc">Read letters shared by the community. These open letters are here to inspire, comfort, and connect with others.</p>
 
-        <!-- Category Filters styled to match project controls -->
+        <!-- Category Filters fully synchronized with the write options -->
         <div class="category-filters">
           <button class="filter active" data-category="all" data-i18n="filter_all">All</button>
           <button class="filter" data-category="when-down" data-i18n="filter_down">When Down</button>
           <button class="filter" data-category="gratitude" data-i18n="filter_gratitude">Gratitude</button>
           <button class="filter" data-category="hope" data-i18n="filter_hope">Hope</button>
           <button class="filter" data-category="reflection" data-i18n="filter_reflection">Reflection</button>
-          <button class="filter" data-category="uncategorised" data-i18n="filter_uncategorized">Uncategorised</button>
+          <button class="filter" data-category="encouragement" data-i18n="filter_encouragement">Encouragement</button>
+          <button class="filter" data-category="healing" data-i18n="filter_healing">Healing</button>
+          <button class="filter" data-category="other" data-i18n="filter_other">Other</button>
         </div>
 
         <div class="letters-container">
@@ -51,9 +53,9 @@
           <div class="loading" data-i18n="loading_text">Loading letters...</div>
         </div>
 
-        <!-- Styled Load More Button Section -->
+        <!-- Styled Load More Button Section (Can be used for pagination later) -->
         <div class="load-more">
-          <button class="letter-button" data-i18n="btn_load_more">Load More Letters</button>
+          <button id="loadMoreBtn" class="letter-button" data-i18n="btn_load_more">Load More Letters</button>
         </div>
       </section>
     </main>

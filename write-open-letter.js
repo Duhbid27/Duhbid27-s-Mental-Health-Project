@@ -1,38 +1,38 @@
-// 1. ALWAYS put imports at the very top of the file
-import { saveOpenLetter } from './supabase-db.js';
+// --- 1. IMPORT GOOGLE SHEETS ENGINE ---
+import { DB } from './db.js';
 
-// Write Open Letter functionality
+// --- 2. SUBMIT FORM FUNCTION ---
 async function submitOpenLetter(event) {
     event.preventDefault();
 
     const form = document.getElementById('openLetterForm');
     const formData = new FormData(form);
 
-    const letterData = {
-        category: formData.get('category'),
-        content: formData.get('content'),
-        author_name: formData.get('authorName') || 'Anonymous'
-    };
+    // Extract form inputs to match Google Sheets schema parameters
+    const category = formData.get('category');
+    const content = formData.get('content');
+    const authorName = formData.get('authorName') || 'Anonymous';
 
     try {
-        // 2. Now we actually call the function and wait for the result
-        const success = await saveOpenLetter(letterData);
+        // Call the Google Sheets database handler instead of Supabase
+        const result = await DB.postOpenLetter(category, content, authorName);
 
-        if (success) {
+        if (result && result.status === 'success') {
             alert('Your letter has been posted! Thank you for sharing with the community.');
             form.reset();
-            // Optionally redirect to explore page
-            // window.location.href = 'explore-open-letters.html';
+            
+            // Automatically redirect to the explore tab after a successful post
+            window.location.href = 'explore-open-letters.html';
         } else {
-            alert('Sorry, there was an error posting your letter. Please try again.');
+            alert('Sorry, there was an error saving your letter to Google Sheets. Please try again.');
         }
     } catch (error) {
-        console.error('Error:', error);
-        alert('Sorry, there was an error posting your letter. Please try again.');
+        console.error('Error submitting open letter:', error);
+        alert('Sorry, there was an error posting your letter. Please check your connection and try again.');
     }
 }
 
-// Initialize write open letter page
+// --- 3. INITIALIZE EVENT LISTENERS ---
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('openLetterForm');
     if (form) {
