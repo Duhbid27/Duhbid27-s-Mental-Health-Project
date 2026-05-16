@@ -128,7 +128,8 @@
         }
 
         .card-container.open {
-            transform: rotateY(-180px);
+            /* FIXED: Changed from px to deg so the browser can compute the 3D flip cleanly */
+            transform: rotateX(10deg) rotateY(-180deg);
         }
 
         .card-side {
@@ -237,7 +238,6 @@
 </head>
 <body>
 
-    <!-- STAGE 1: Birthday Cake -->
     <div id="cake-stage">
         <div class="cake">
             <div class="candle">
@@ -247,27 +247,21 @@
         <p class="instructions" id="cake-instruction">Click the flame to blow out the candle!</p>
     </div>
 
-    <!-- STAGE 2, 3 & 4: The Card Container -->
     <div id="card-stage">
         <div class="card-container folded" id="birthday-card">
             
-            <!-- Front of the Card -->
             <div class="card-side card-front">
                 <h2>For Leonne ✨</h2>
                 <p>Tap anywhere to open</p>
             </div>
 
-            <!-- Inside of the Card -->
             <div class="card-side card-inside">
                 
-                <!-- Layer 1: Google Drive Photo -->
                 <div class="content-layer" id="photo-layer">
-                    <!-- Replace YOUR_IMAGE_ID_HERE with your actual Google Drive file ID -->
                     <img class="drive-image" src="https://lh3.googleusercontent.com/d/1TzKTFR82E7-p4PCoJ9g6gb64wGLRaEzX" alt="Special Memory for Leonne">
                     <p class="image-caption">Tap anywhere to read my message...</p>
                 </div>
 
-                <!-- Layer 2: The Letter -->
                 <div class="content-layer hidden" id="letter-layer">
                     <div class="letter-content">
                         <h3>Happy Birthday, Leonne!</h3>
@@ -283,8 +277,6 @@
     </div>
 
     <script>
-        // Track the current progression step
-        // 0 = Cake, 1 = Folded Card, 2 = Open Card (Showing Photo), 3 = Showing Letter
         let currentStep = 0;
 
         const cakeStage = document.getElementById('cake-stage');
@@ -294,23 +286,21 @@
         const letterLayer = document.getElementById('letter-layer');
 
         // Step 1: Blow out candle
-        function blowCandle(event) {
-            event.stopPropagation(); // Stop click from triggering global body listener immediately
+        window.blowCandle = function(event) {
+            event.stopPropagation(); // Prevents global body click from firing during the cake sequence
             
             document.getElementById('flame').style.display = 'none';
             document.getElementById('cake-instruction').innerText = "Make a wish!";
             
-            // Fade out cake, transition into showing folded card
             setTimeout(() => {
                 cakeStage.style.opacity = '0';
                 setTimeout(() => {
                     cakeStage.style.display = 'none';
                     cardStage.style.display = 'block';
                     
-                    // Trigger a smooth fade-in for the card
                     setTimeout(() => {
                         cardStage.style.opacity = '1';
-                        currentStep = 1; // Now at Folded Card stage
+                        currentStep = 1; // Unlocks the global click trigger safely
                     }, 50);
                 }, 800);
             }, 1000);
@@ -319,12 +309,12 @@
         // Global click handler to progress stages 2, 3, and 4
         document.body.addEventListener('click', () => {
             if (currentStep === 1) {
-                // Step 2 -> Step 3: Open the card to reveal photo
+                // Step 2 -> Step 3: Flip card open to reveal image layer
                 card.classList.remove('folded');
                 card.classList.add('open');
                 currentStep = 2;
             } else if (currentStep === 2) {
-                // Step 3 -> Step 4: Hide photo, reveal letter
+                // Step 3 -> Step 4: Hide image layout layer and crossfade into the letter text
                 photoLayer.classList.add('hidden');
                 letterLayer.classList.remove('hidden');
                 currentStep = 3;
