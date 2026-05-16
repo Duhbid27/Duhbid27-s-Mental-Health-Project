@@ -5,6 +5,7 @@ const routes = {
   'write-open': 'write-open-letter.html',
   'search-name': 'search-by-name.html',
   'write-named': 'write-named-letter.html',
+  'view-special-hub': 'special-cards.html' // Your static handcrafted letters list page
 };
 
 // --- 2. EVENT BINDING ENGINE ---
