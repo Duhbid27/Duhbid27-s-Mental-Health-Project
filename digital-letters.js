@@ -1,15 +1,14 @@
 // --- 1. ACTION TO URL MAP ---
-// A clean dictionary pairing data-action names directly with their destination pages
+// Clean dictionary mapping buttons cleanly to your manual file routes
 const routes = {
   'explore-open': 'explore-open-letters.html',
   'write-open': 'write-open-letter.html',
   'search-name': 'search-by-name.html',
   'write-named': 'write-named-letter.html',
-  'create-card': 'create-card.html'
+  'view-special-hub': 'special-cards.html' // Your static handcrafted letters list page
 };
 
-// --- 2. AUTOMATIC EVENT BINDING ---
-// Select all action buttons on the page
+// --- 2. EVENT BINDING ENGINE ---
 const buttons = document.querySelectorAll('button[data-action]');
 
 buttons.forEach((button) => {
@@ -17,7 +16,6 @@ buttons.forEach((button) => {
     const action = button.dataset.action;
     const targetUrl = routes[action];
 
-    // If the route exists in our dictionary, redirect the user immediately
     if (targetUrl) {
       window.location.href = targetUrl;
     } else {

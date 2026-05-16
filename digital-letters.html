@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Digital Letters | Hoie’s Journey</title>
-    <!-- Font Link for the Playfair/Inter aesthetic -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
 </head>
@@ -18,11 +17,9 @@
         <a href="support.html" data-i18n="nav_support">Support</a>
         <a href="guidance.html" data-i18n="nav_guidance">Guided Support</a>
         <a href="resources.html" data-i18n="nav_resources">Resources</a>
-        <!-- Added the active tab link to secure identical menu sizing across sub-pages -->
         <a href="digital-letters.html" class="active" data-i18n="nav_letters">Digital Letters</a>
       </nav>
 
-      <!-- Controls wrapper for perfect menu centering -->
       <div class="controls">
         <button id="langToggle" class="lang-toggle">🇻🇳 VI</button>
         <button id="themeToggle" class="theme-toggle">🌙</button>
@@ -54,9 +51,9 @@
           </article>
 
           <article class="project-card card letter-option" data-type="private">
-            <h3 data-i18n="letters_private_title">Private Greeting Cards</h3>
-            <p data-i18n="letters_private_desc">Create personalized digital greeting cards for special occasions. Send unique links to specific recipients - only they can access and read your message.</p>
-            <button class="letter-button" data-action="create-card" data-i18n="btn_create_card">Create Card</button>
+            <h3 data-i18n="letters_private_title">Bespoke Greeting Cards</h3>
+            <p data-i18n="letters_private_desc">A collection of custom, handcrafted digital letters made specially for my close friends. Protected, hidden, and tailored with unique themes.</p>
+            <button class="letter-button" data-action="view-special-hub" data-i18n="btn_view_special">Open Vault / Archive</button>
           </article>
 
         </div>
@@ -67,7 +64,6 @@
       <p data-i18n="footer_text">Made with care, honesty, awareness, and a little JavaScript.</p>
     </footer>
 
-    <!-- Initialized as modules to keep translation and theme switching intact -->
     <script type="module" src="script.js"></script>
     <script type="module" src="digital-letters.js"></script>
   </body>
