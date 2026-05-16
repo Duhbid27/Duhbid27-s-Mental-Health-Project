@@ -1,450 +1,235 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Leonne!</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday Leonne! 🎂 ✨</title>
+    
+    <link rel="stylesheet" href="../../../styles.css" />
+    
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+      body {
+        background: linear-gradient(135deg, #fef3c7, #fde68a) !important; /* Soft golden warm aesthetic */
+        overflow-x: hidden;
+      }
 
-        body {
-            background-color: #f7ebe1;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            cursor: pointer;
-            perspective: 1000px;
-        }
+      /* INTERACTIVE INTRO OVERLAY (To unlock background browser autoplay safely) */
+      #cardOverlay {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(30, 41, 59, 0.98);
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        transition: opacity 0.5s ease;
+      }
+      #cardOverlay h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        letter-spacing: 1px;
+      }
 
-        /* --- Stage 0: Password Gate Overlay --- */
-        #password-stage {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #f7ebe1;
-            z-index: 100;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
+      /* MAIN CARD CONTAINER */
+      .birthday-envelope {
+        max-width: 550px;
+        margin: 4rem auto;
+        padding: 3rem;
+        background: white;
+        border-radius: 30px;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.08);
+        text-align: center;
+        position: relative;
+      }
 
-        .lock-box {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-            text-align: center;
-            max-width: 360px;
-            width: 90%;
-            border: 1px solid #f0f0f0;
-            cursor: default; /* Stops body pointer behavior inside the input frame */
-        }
+      /* INTERACTIVE CSS CANDLE SYSTEM */
+      .cake-container {
+        position: relative;
+        width: 100%;
+        margin: 2.5rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .candle {
+        position: relative;
+        width: 24px;
+        height: 90px;
+        background: linear-gradient(to right, #06b6d4, #22d3ee); /* Cyan candle profile */
+        border-radius: 6px;
+        box-shadow: inset -5px 0 rgba(0,0,0,0.1);
+      }
+      /* Strips pattern decoration */
+      .candle::before {
+        content: '';
+        position: absolute;
+        width: 100%; height: 100%;
+        background: repeating-linear-gradient(45deg, transparent, transparent 10px, #fff 10px, #fff 20px);
+        opacity: 0.25;
+        border-radius: 6px;
+      }
+      .wick {
+        position: absolute;
+        top: -12px; left: 50%;
+        transform: translateX(-50%);
+        width: 3px; height: 12px;
+        background: #3f3f46;
+        border-radius: 2px;
+      }
+      .flame {
+        position: absolute;
+        top: -38px; left: 50%;
+        transform: translateX(-50%);
+        width: 20px; height: 32px;
+        background: linear-gradient(to bottom, #f97316, #facc15);
+        border-radius: 50% 50% 20% 20%;
+        box-shadow: 0 0 20px rgba(234, 179, 8, 0.8), 0 0 40px rgba(249, 115, 22, 0.6);
+        cursor: pointer;
+        z-index: 100;
+        animation: flicker 0.15s infinite alternate ease-in-out;
+        transition: all 0.3s ease;
+      }
+      .flame:hover {
+        transform: translateX(-50%) scale(1.15);
+      }
+      @keyframes flicker {
+        0% { transform: translateX(-50%) scale(1) rotate(-1deg); }
+        100% { transform: translateX(-50%) scale(1.08) rotate(2deg); }
+      }
+      
+      /* Extinguished UI Helper state styling flags */
+      .flame.blown-out {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(-50%) translateY(-20px) scale(0);
+      }
+      .smoke-trail {
+        position: absolute;
+        top: -25px; left: 50%;
+        transform: translateX(-50%);
+        width: 4px; height: 20px;
+        background: rgba(156, 163, 175, 0.4);
+        border-radius: 50%;
+        filter: blur(2px);
+        opacity: 0;
+        pointer-events: none;
+      }
+      .smoke-trail.rise {
+        animation: smokeFade 2s forwards ease-out;
+      }
+      @keyframes smokeFade {
+        0% { opacity: 0; transform: translateX(-50%) translateY(0) scaleX(1); }
+        20% { opacity: 0.6; }
+        100% { opacity: 0; transform: translateX(-20px) translateY(-40px) scaleX(3) scaleY(1.5); filter: blur(5px); }
+      }
 
-        .lock-box h3 {
-            color: #4a4a4a;
-            margin-bottom: 0.5rem;
-        }
-
-        .lock-box input {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #f0f0f0;
-            border-radius: 8px;
-            margin-bottom: 0.5rem; /* Adjusted for toggle positioning space */
-            font-size: 1rem;
-            text-align: center;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .lock-box input:focus {
-            border-color: #ffafbd;
-        }
-
-        .unlock-btn {
-            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            font-size: 1rem;
-            box-shadow: 0 4px 10px rgba(255, 175, 189, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .unlock-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 14px rgba(255, 175, 189, 0.4);
-        }
-
-        /* --- Stage 1: Birthday Cake --- */
-        #cake-stage {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.8s ease;
-        }
-
-        .cake {
-            position: relative;
-            width: 180px;
-            height: 120px;
-            background: #f19fb3;
-            border-radius: 10px 10px 0 0;
-            box-shadow: inset 0 10px 0 #f4b2c1, 0 8px 0 #df8298;
-            margin-top: 60px;
-        }
-
-        .cake::before {
-            content: "";
-            position: absolute;
-            top: 30px;
-            left: 0;
-            width: 100%;
-            height: 12px;
-            background: #fff;
-        }
-
-        .cake::after {
-            content: "";
-            position: absolute;
-            top: 70px;
-            left: 0;
-            width: 100%;
-            height: 12px;
-            background: #fff;
-        }
-
-        .candle {
-            position: absolute;
-            top: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 12px;
-            height: 40px;
-            background: linear-gradient(to right, #dee2e6, #f8f9fa);
-            border-radius: 3px 3px 0 0;
-        }
-
-        .flame {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 14px;
-            height: 20px;
-            background: #ffbc42;
-            border-radius: 50% 50% 20% 20%;
-            box-shadow: 0 0 10px #ffbc42;
-            animation: flicker 0.6s infinite alternate;
-            cursor: pointer;
-        }
-
-        @keyframes flicker {
-            0% { transform: translateX(-50%) scale(1); }
-            100% { transform: translateX(-50%) scale(1.1) skewX(2deg); }
-        }
-
-        .instructions {
-            margin-top: 30px;
-            font-size: 1.1rem;
-            color: #6c757d;
-            font-weight: 500;
-            text-align: center;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 0.6; }
-            50% { opacity: 1; }
-            100% { opacity: 0.6; }
-        }
-
-        /* --- Stage 2 & 3: Card Setup --- */
-        #card-stage {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.8s ease;
-        }
-
-        .card-container {
-            position: relative;
-            width: 300px;
-            height: 400px;
-            transform-style: preserve-3d;
-            transition: transform 1s ease;
-        }
-
-        /* Card States */
-        .card-container.folded {
-            transform: rotateX(10deg) rotateY(0deg);
-        }
-
-        .card-container.open {
-            transform: rotateX(10deg) rotateY(-180deg);
-        }
-
-        .card-side {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 12px;
-            backface-visibility: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 25px;
-            background-color: #fff;
-            border: 1px solid #f0f0f0;
-        }
-
-        /* Front Cover */
-        .card-front {
-            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
-            color: white;
-            z-index: 2;
-            transform: rotateY(0deg);
-            text-align: center;
-        }
-
-        .card-front h2 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
-
-        /* Inside Right / Backing */
-        .card-inside {
-            background: #ffffff;
-            transform: rotateY(180deg);
-            z-index: 1;
-            text-align: center;
-            overflow: hidden;
-        }
-
-        /* Content layers inside the card */
-        .content-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.5s ease, transform 0.5s ease;
-            background: #fff;
-            border-radius: 12px;
-        }
-
-        .hidden {
-            opacity: 0;
-            pointer-events: none;
-            transform: scale(0.9);
-        }
-
-        /* Image Display Styling */
-        .drive-image {
-            width: 100%;
-            height: 85%;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
-
-        .image-caption {
-            margin-top: 12px;
-            font-size: 0.85rem;
-            color: #888;
-            font-style: italic;
-        }
-
-        /* Letter Styling */
-        .letter-content {
-            color: #4a4a4a;
-            line-height: 1.6;
-        }
-
-        .letter-content h3 {
-            color: #d96a7b;
-            margin-bottom: 15px;
-        }
-
-        .letter-content p {
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-
-        .signature {
-            font-family: 'Georgia', serif;
-            font-style: italic;
-            color: #d96a7b;
-            margin-top: 15px;
-            font-weight: bold;
-        }
+      .candle-notice {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-top: 0.75rem;
+        font-style: italic;
+        transition: opacity 0.5s ease;
+      }
     </style>
 </head>
 <body>
 
-    <div id="password-stage">
-        <div class="lock-box" onclick="event.stopPropagation()">
-            <span style="font-size: 3rem; display: block; margin-bottom: 0.5rem;">🔒</span>
-            <h3>Private Access</h3>
-            <p style="font-size: 0.85rem; color: #888; margin-bottom: 1.5rem;">This card is locked. Enter the special code to open Leonne's card.</p>
-            
-            <input type="password" id="cardPassword" placeholder="Type password here..." autocomplete="off">
-            <span id="togglePasswordBtn" onclick="togglePasswordVisibility(event)" style="display: block; font-size: 0.8rem; color: #888; text-align: right; margin-bottom: 1.2rem; cursor: pointer; user-select: none;">👁️ Show Password</span>
-            
-            <button class="unlock-btn" onclick="checkPassword(event)">Unlock Card</button>
-            <p id="password-error" style="color: #d96a7b; font-size: 0.85rem; margin-top: 12px; display: none; font-weight: 500;">Oops! Wrong code. Try again! 🤔</p>
-        </div>
+    <div id="cardOverlay">
+      <span style="font-size: 4rem; margin-bottom: 1rem; animation: float 3s ease-in-out infinite;">🎁</span>
+      <h2>For Leonne</h2>
+      <p style="color: rgba(255,255,255,0.6); margin-bottom: 2rem; font-size: 0.95rem;">May natanggap kang espesyal na liham.</p>
+      <button class="letter-button" id="openCardBtn" style="transform: scale(1.1);">Open Card 💌</button>
     </div>
 
-    <div id="cake-stage">
-        <div class="cake">
-            <div class="candle">
-                <div class="flame" id="flame" onclick="blowCandle(event)"></div>
-            </div>
+    <div id="yt-bg-player" style="position: absolute; width: 0; height: 0; pointer-events: none;"></div>
+
+    <main class="birthday-envelope">
+        <h1 style="font-family: 'Playfair Display', serif; color: var(--accent); font-size: 2.5rem;">Happy Birthday, Leonne! 🎂</h1>
+        
+        <div class="cake-container">
+          <div class="flame" id="candleFlame" title="Click me to blow out the candle!"></div>
+          <div class="smoke-trail" id="smokeTrail"></div>
+          <div class="candle">
+            <div class="wick"></div>
+          </div>
+          <p class="candle-notice" id="candleTip">💡 Hint: Make a wish and click the flame to blow it out!</p>
         </div>
-        <p class="instructions" id="cake-instruction">Click the flame to blow out the candle!</p>
-    </div>
 
-    <div id="card-stage">
-        <div class="card-container folded" id="birthday-card">
-            
-            <div class="card-side card-front">
-                <h2>For Leonne ✨</h2>
-                <p>Tap anywhere to open</p>
-            </div>
-
-            <div class="card-side card-inside">
-                
-                <div class="content-layer" id="photo-layer">
-                    <img class="drive-image" src="https://lh3.googleusercontent.com/d/1TzKTFR82E7-p4PCoJ9g6gb64wGLRaEzX" alt="Special Memory for Leonne">
-                    <p class="image-caption">Tap anywhere to read my message...</p>
-                </div>
-
-                <div class="content-layer hidden" id="letter-layer">
-                    <div class="letter-content">
-                        <h3>Happy Birthday, Leonne!</h3>
-                        <p>Wishing you a wonderful day filled with love, laughter, and everything your heart desires.</p>
-                        <p>Thank you for being such an incredible person and bringing so much joy into the world.</p>
-                        <div class="signature">With love, [Your Name]</div>
-                    </div>
-                </div>
-
-            </div>
-
+        <div style="line-height: 1.8; margin-top: 2rem; text-align: left; font-size: 1.05rem; color: #334155;">
+            <p style="margin-bottom: 1rem; font-weight: 600;">Dear Leonne,</p>
+            <p style="margin-bottom: 1rem;">
+                Dito mo na isusulat 'yung pinaka-heartfelt, masaya, o personal mong birthday message para sa kanya! Pwede kang magkuwento, maglapag ng inside jokes, o maglagay ng kahit anong images o elements na gusto mo.
+            </p>
+            <p>
+                sana nagustuhan mo 'tong munting digital greeting space na ginawa ko para sa'yo. Have an amazing year ahead! ✨
+            </p>
         </div>
-    </div>
+
+        <p style="text-align: right; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.25rem; margin-top: 3rem; color: var(--accent);">
+            From,<br><span style="font-weight: 400; font-style: italic; font-size: 1.1rem; color: var(--text);">Hoie</span>
+        </p>
+    </main>
 
     <script>
-        let currentStep = -1;
+      let player;
 
-        const passStage = document.getElementById('password-stage');
-        const cakeStage = document.getElementById('cake-stage');
-        const cardStage = document.getElementById('card-stage');
-        const card = document.getElementById('birthday-card');
-        const photoLayer = document.getElementById('photo-layer');
-        const letterLayer = document.getElementById('letter-layer');
-
-        // Added: Password Visibility Toggle Wrapper Function Engine
-        window.togglePasswordVisibility = function(event) {
-            event.stopPropagation(); // Restricts parent document clicks from parsing ahead
-            const inputField = document.getElementById('cardPassword');
-            const toggleBtn = document.getElementById('togglePasswordBtn');
-            
-            if (inputField.type === 'password') {
-                inputField.type = 'text';
-                toggleBtn.innerHTML = '🙈 Hide Password';
-            } else {
-                inputField.type = 'password';
-                toggleBtn.innerHTML = '👁️ Show Password';
-            }
-        }
-
-        // Step 0: Check Password Solution
-        window.checkPassword = function(event) {
-            event.stopPropagation();
-            const inputField = document.getElementById('cardPassword');
-            const errorText = document.getElementById('password-error');
-            
-            // 📝 PALITAN MO ITO: Iyong custom password target string signature key
-            const SECRET_PASSWORD = "leonne_birthday_2026"; 
-
-            if (inputField.value === SECRET_PASSWORD) {
-                errorText.style.display = 'none';
-                passStage.style.opacity = '0';
-                passStage.style.transform = 'scale(1.05)';
-                
-                setTimeout(() => {
-                    passStage.style.display = 'none';
-                    currentStep = 0; 
-                }, 600);
-            } else {
-                errorText.style.display = 'block';
-                inputField.value = '';
-                inputField.focus();
-            }
-        }
-
-        document.getElementById('cardPassword').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                window.checkPassword(e);
-            }
+      // Automatically triggered call once the external YouTube Iframe script completes parsing
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('yt-bg-player', {
+          height: '0',
+          width: '0',
+          videoId: '57jZJ2QpKRg', // A popular, elegant Orchestral Happy Birthday background track
+          playerVars: {
+            'autoplay': 0,
+            'controls': 0,
+            'loop': 1,
+            'playlist': '57jZJ2QpKRg', // Required pairing argument parameter for handling playlist loops cleanly
+            'rel': 0
+          }
         });
+      }
 
-        // Step 1: Blow out candle
-        window.blowCandle = function(event) {
-            event.stopPropagation(); 
-            
-            document.getElementById('flame').style.display = 'none';
-            document.getElementById('cake-instruction').innerText = "Make a wish!";
-            
-            setTimeout(() => {
-                cakeStage.style.opacity = '0';
-                setTimeout(() => {
-                    cakeStage.style.display = 'none';
-                    cardStage.style.display = 'block';
-                    
-                    setTimeout(() => {
-                        cardStage.style.opacity = '1';
-                        currentStep = 1; 
-                    }, 50);
-                }, 800);
-            }, 1000);
+      // Append the core async YouTube JS code package injector block
+      const tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // UI EVENT LISTENERS
+      document.getElementById('openCardBtn').addEventListener('click', () => {
+        // Fade and tear down overlay frame barrier
+        const overlay = document.getElementById('cardOverlay');
+        overlay.style.opacity = '0';
+        setTimeout(() => overlay.style.display = 'none', 500);
+
+        // Securely prompt the hidden audio framework to play background loops safely now
+        if (player && typeof player.playVideo === 'function') {
+          player.playVideo();
         }
+      });
 
-        // Global click handler to progress stages 2, 3, and 4
-        document.body.addEventListener('click', () => {
-            if (currentStep === 1) {
-                card.classList.remove('folded');
-                card.classList.add('open');
-                currentStep = 2;
-            } else if (currentStep === 2) {
-                photoLayer.classList.add('hidden');
-                letterLayer.classList.remove('hidden');
-                currentStep = 3;
-            }
-        });
+      // BLOW OUT THE CANDLE LOGIC INTERCEPT
+      document.getElementById('candleFlame').addEventListener('click', function() {
+        // 1. Extinguish flame graphics visually
+        this.classList.add('blown-out');
+
+        // 2. Fire up smoke animation trajectory trail
+        document.getElementById('smokeTrail').classList.add('rise');
+
+        // 3. Clear hint text notice indicators smoothly
+        const tip = document.getElementById('candleTip');
+        tip.textContent = "✨ Wish made! May all your dreams come true.";
+        tip.style.color = "#10b981"; // shifts tone alert gracefully to crisp emerald green
+
+        // 4. STOP AUDIO CAPTURE STREAM ENTIRELY
+        if (player && typeof player.stopVideo === 'function') {
+          player.stopVideo();
+          console.log("YouTube soundscape terminated successfully via structural blow command execution.");
+        }
+      });
     </script>
 </body>
 </html>
