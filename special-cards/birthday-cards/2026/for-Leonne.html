@@ -23,7 +23,7 @@
             perspective: 1000px;
         }
 
-        /* --- New Stage 0: Password Gate Overlay --- */
+        /* --- Stage 0: Password Gate Overlay --- */
         #password-stage {
             position: fixed;
             top: 0;
@@ -60,7 +60,7 @@
             padding: 12px;
             border: 2px solid #f0f0f0;
             border-radius: 8px;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem; /* Adjusted for toggle positioning space */
             font-size: 1rem;
             text-align: center;
             outline: none;
@@ -309,7 +309,10 @@
             <span style="font-size: 3rem; display: block; margin-bottom: 0.5rem;">🔒</span>
             <h3>Private Access</h3>
             <p style="font-size: 0.85rem; color: #888; margin-bottom: 1.5rem;">This card is locked. Enter the special code to open Leonne's card.</p>
+            
             <input type="password" id="cardPassword" placeholder="Type password here..." autocomplete="off">
+            <span id="togglePasswordBtn" onclick="togglePasswordVisibility(event)" style="display: block; font-size: 0.8rem; color: #888; text-align: right; margin-bottom: 1.2rem; cursor: pointer; user-select: none;">👁️ Show Password</span>
+            
             <button class="unlock-btn" onclick="checkPassword(event)">Unlock Card</button>
             <p id="password-error" style="color: #d96a7b; font-size: 0.85rem; margin-top: 12px; display: none; font-weight: 500;">Oops! Wrong code. Try again! 🤔</p>
         </div>
@@ -354,8 +357,6 @@
     </div>
 
     <script>
-        // Track the current progression step
-        // -1 = Locked, 0 = Cake, 1 = Folded Card, 2 = Open Card (Showing Photo), 3 = Showing Letter
         let currentStep = -1;
 
         const passStage = document.getElementById('password-stage');
@@ -365,13 +366,28 @@
         const photoLayer = document.getElementById('photo-layer');
         const letterLayer = document.getElementById('letter-layer');
 
+        // Added: Password Visibility Toggle Wrapper Function Engine
+        window.togglePasswordVisibility = function(event) {
+            event.stopPropagation(); // Restricts parent document clicks from parsing ahead
+            const inputField = document.getElementById('cardPassword');
+            const toggleBtn = document.getElementById('togglePasswordBtn');
+            
+            if (inputField.type === 'password') {
+                inputField.type = 'text';
+                toggleBtn.innerHTML = '🙈 Hide Password';
+            } else {
+                inputField.type = 'password';
+                toggleBtn.innerHTML = '👁️ Show Password';
+            }
+        }
+
         // Step 0: Check Password Solution
         window.checkPassword = function(event) {
             event.stopPropagation();
             const inputField = document.getElementById('cardPassword');
             const errorText = document.getElementById('password-error');
             
-            // 📝 PALITAN MO ITO: Dito isusulat ang sikretong password para kay Leonne
+            // 📝 PALITAN MO ITO: Iyong custom password target string signature key
             const SECRET_PASSWORD = "leonne_birthday_2026"; 
 
             if (inputField.value === SECRET_PASSWORD) {
@@ -381,7 +397,7 @@
                 
                 setTimeout(() => {
                     passStage.style.display = 'none';
-                    currentStep = 0; // Unlocks Stage 1 (Cake) sequence successfully
+                    currentStep = 0; 
                 }, 600);
             } else {
                 errorText.style.display = 'block';
@@ -390,7 +406,6 @@
             }
         }
 
-        // Allow unlocking by pressing 'Enter' key directly in input text field
         document.getElementById('cardPassword').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 window.checkPassword(e);
