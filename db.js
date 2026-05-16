@@ -1,6 +1,6 @@
 // --- DATABASE CONFIGURATION ---
 // Paste your copied Google Web App URL here!
-const API_URL = "https://script.google.com/macros/s/XXXXX/exec"; 
+const API_URL = "https://script.google.com/macros/s/AKfycbxCnu63aI9ByNgpyk62H81DJ6BvCFFoe2p_ycLjybg5ESer9CQrXPv8nH574crl5oOPcw/exec"; 
 
 export const DB = {
   // Read open letters
