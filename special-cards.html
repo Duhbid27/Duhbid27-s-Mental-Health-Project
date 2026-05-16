@@ -4,45 +4,53 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Vault | Hoie’s Journey</title>
-    <link href="https://fonts.googleapis.com/css2 family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght=700&family=Inter:wght=400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
     <header class="topbar">
-      <div class="brand">Hoie’s Journey</div>
+      <div class="brand" data-i18n="brand">Hoie’s Journey</div>
+      
       <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="support.html">Support</a>
-        <a href="guidance.html">Guided Support</a>
-        <a href="resources.html">Resources</a>
-        <a href="digital-letters.html" class="active">Digital Letters</a>
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="about.html" data-i18n="nav_about">About</a>
+        <a href="support.html" data-i18n="nav_support">Support</a>
+        <a href="guidance.html" data-i18n="nav_guidance">Guided Support</a>
+        <a href="resources.html" data-i18n="nav_resources">Resources</a>
+        <a href="digital-letters.html" class="active" data-i18n="nav_letters">Digital Letters</a>
       </nav>
+
+      <div class="controls">
+        <button id="langToggle" class="lang-toggle">🇻🇳 VI</button>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+      </div>
     </header>
 
     <main>
-      <section class="panel">
+      <section class="panel" id="special-cards-vault">
         <div class="section-header">
           <span class="section-number">05.4</span>
-          <h2>Bespoke Greeting Cards Vault</h2>
+          <h2 data-i18n="vault_title">Bespoke Greeting Cards Vault</h2>
         </div>
-        <p class="section-description">A quiet place holding custom-designed layout frameworks built specifically for people close to my heart.</p>
+        <p class="section-description" data-i18n="vault_desc">A quiet place holding custom-designed layout frameworks built specifically for people close to my heart.</p>
 
         <div class="grid project-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
           
           <article class="project-card card" style="text-align: center;">
             <span style="font-size: 2.5rem;">🎂</span>
-            <h3 style="margin-top: 1rem; font-family: 'Playfair Display', serif;">For Leonne</h3>
-            <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem;">Special Birthday Card • 2026</p>
-            <a href="special-cards/birthday-cards/2026/for-Leonne.html" class="letter-button" style="text-decoration: none; display: block;">Open Letter</a>
+            <h3 style="margin-top: 1rem; font-family: 'Playfair Display', serif;" data-i18n="vault_leonne_name">For Leonne</h3>
+            <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem;" data-i18n="vault_leonne_meta">Special Birthday Card • 2026</p>
+            <a href="special-cards/birthday-cards/2026/for-Leonne.html" class="letter-button" style="text-decoration: none; display: block;" data-i18n="btn_open_letter">Open Letter</a>
           </article>
 
-          </div>
+        </div>
       </section>
     </main>
 
     <footer class="footer">
-      <p>Made with care, honesty, awareness, and a little JavaScript.</p>
+      <p data-i18n="footer_text">Made with care, honesty, awareness, and a little JavaScript.</p>
     </footer>
+
+    <script type="module" src="script.js"></script>
 </body>
 </html>
