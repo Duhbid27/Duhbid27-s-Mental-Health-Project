@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Private Greeting Card | Hoie’s Journey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header class="topbar">
+      <div class="brand" data-i18n="brand">Hoie’s Journey</div>
+      
+      <nav>
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="about.html" data-i18n="nav_about">About</a>
+        <a href="support.html" data-i18n="nav_support">Support</a>
+        <a href="guidance.html" data-i18n="nav_guidance">Guided Support</a>
+        <a href="resources.html" data-i18n="nav_resources">Resources</a>
+        <a href="digital-letters.html" class="active" data-i18n="nav_letters">Digital Letters</a>
+      </nav>
+
+      <div class="controls">
+        <button id="langToggle" class="lang-toggle">🇻🇳 VI</button>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel" id="create-card-section">
+        <div class="section-header">
+          <span class="section-number">05.5</span>
+          <h2 data-i18n="create_card_title">Create Private Greeting Card</h2>
+        </div>
+        <p class="section-description" data-i18n="create_card_desc">Design a private card for someone special. The message is safely encoded directly inside the link, ensuring absolute privacy.</p>
+
+        <form class="letter-form" id="cardForm">
+          <div class="form-group">
+            <label for="cardRecipient" data-i18n="label_card_recipient">Recipient's Name *</label>
+            <input type="text" id="cardRecipient" name="recipient" placeholder="Who is this beautiful card for?" required>
+          </div>
+
+          <div class="form-group">
+            <label for="cardTheme" data-i18n="label_card_theme">Card Atmosphere Theme *</label>
+            <select id="cardTheme" name="theme" required>
+              <option value="cloudy" data-i18n="theme_cloudy">☁️ Soft Frosted Cloud</option>
+              <option value="sunset" data-i18n="theme_sunset">🌅 Warm Sunset Glow</option>
+              <option value="starry" data-i18n="theme_starry">✨ Deep Starry Night</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="cardMessage" data-i18n="label_card_message">Your Private Message *</label>
+            <textarea id="cardMessage" name="message" rows="10" placeholder="Write your heartfelt greeting, secrets, or comfort words here..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="cardAuthor" data-i18n="label_card_author">Your Name (Optional)</label>
+            <input type="text" id="cardAuthor" name="author" placeholder="Anonymous (leave blank if preferred)">
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="letter-button secondary" onclick="window.history.back()" data-i18n="btn_cancel">Cancel</button>
+            <button type="submit" class="letter-button" data-i18n="btn_generate_card">Generate Card Link</button>
+          </div>
+        </form>
+
+        <div id="cardResult" class="search-results card" style="display: none; margin-top: 2.5rem; text-align: center;">
+          <h3 data-i18n="card_success_title">✨ Your Private Card is Ready!</h3>
+          <p data-i18n="card_success_desc" style="font-size: 0.9rem; color: var(--muted); margin-bottom: 1.5rem;">Copy the unique link below and send it directly to them. No records are saved online.</p>
+          
+          <div class="search-input-group">
+            <input type="text" id="generatedLink" readonly style="background: var(--surface); cursor: text;">
+            <button class="letter-button" id="copyLinkBtn" data-i18n="btn_copy_link">Copy Link</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p data-i18n="footer_text">Made with care, honesty, awareness, and a little JavaScript.</p>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+    <script type="module" src="create-card.js"></script>
+</body>
+</html>
