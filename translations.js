@@ -19,6 +19,19 @@ export const translations = {
         about_q1: "Sino ako?",
         about_a1: "Ako si Hoie. Nadiagnosed ako with Bipolar Disorder with Psychotic Features. This website ay way ko of explaining what I experience and how I cope with it. This is also a way para mas maraming tao ang makaalam sa sitwasyon naming mga may mental health disorder.",
         about_q2: "Ano ang Bipolar Disorder?",
+        about_a2: "Ang Bipolar Disorder ay isang mental health condition na nagdudulot ng malalaking pagbabago sa mood, energy, at activity levels. Ang mga taong may bipolar disorder ay maaaring makaranas ng matinding highs (mania) at lows (depression) na maaaring makaapekto sa kanilang pang-araw-araw na buhay. Ang mga sintomas ay maaaring mag-iba-iba sa bawat tao, ngunit karaniwang kasama ang mga pagbabago sa enerhiya, pag-iisip, at pag-uugali.",
+        mania_title: "Ano ang Mania o "High"?",
+        mania_desc: "Dito, sobrang taas ng energy ng tao. Hindi lang ito basta pagiging masayahin or hyper, overdrive ito.",
+        mania_feeling: "Feeling: Pakiramdam nila ay "on top of the world" sila o punong-puno ng self-confidence.",
+        mania_actions: "Actions: Mabilis magsalita (racing thoughts), hindi makatulog pero hindi napapagod, at minsan ay nagiging padalos-dalos (tulad ng sobrang paggastos o impulsive decisions).",
+        mania_vibe: "Parang naka-kape nang sobra-sobra o laging naka-set sa "fast forward" ang utak.",
+        mania_note: "Mahirap pigilin ang sarili ng isang taong nasa manic episode.",
+        depression_title: "Ano ang Depression o "Low"?",
+        depression_desc: "Pagkatapos ng high, madalas ay may "crash." Dito pumapasok ang matinding lungkot.",
+        depression_feeling: "Feeling: Sobrang pagod, walang pag-asa, at walang gana sa mga bagay na dati nilang gustong gawin.",
+        depression_actions: "Actions: Hirap bumangon sa kama, laging gustong matulog, o minsan ay hindi makakain.",
+        depression_vibe: "Pakiramdam ay mabigat ang katawan at parang naka-stop ang mundo.",
+        depression_note: "Hindi ito lungkot lang at hindi basta-basta nawawala.",
     },
     vi: {
         brand: "Hành Trình của Hoie",
@@ -40,5 +53,8 @@ export const translations = {
         about_q1: "Tôi là ai?",
         about_a1: "Tôi là Hoie. Tôi được chẩn đoán mắc Rối Loạn Lưỡng Cực với Tính Năng Tâm Thần. Trang web này là cách tôi giải thích những gì tôi trải qua và cách tôi đối phó với nó. Đây cũng là một cách để nhiều người hơn có thể hiểu về tình huống của chúng tôi, những người có rối loạn sức khỏe tâm thần.",
         about_q2: "Rối Loạn Lưỡng Cực là gì?",
+        about_a2: "Rối loạn lưỡng cực là một tình trạng sức khỏe tâm thần gây ra những thay đổi lớn về tâm trạng, năng lượng và mức độ hoạt động. Những người bị rối loạn lưỡng cực có thể trải qua những giai đoạn cao trào (hưng phấn) và thấp thỏm (trầm cảm) có thể ảnh hưởng đến cuộc sống hàng ngày của họ. Các triệu chứng có thể khác nhau ở mỗi người, nhưng thường bao gồm sự thay đổi về năng lượng, cách nghĩ và hành vi.",
+        mania_title: "Hưng Phấn hay 'High' là gì?",
+        mania_desc: "Ở đây, năng lượng của người đó cực kỳ cao. Không chỉ đơn giản là vui vẻ hay quá khích, mà là một trạng thái quá tải."
     }
 };
