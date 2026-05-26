@@ -123,5 +123,15 @@ export const translations = {
         Grandiose: "Vĩ Đại: Niềm tin rằng bạn có quyền lực đặc biệt, tài năng hoặc sứ mệnh trên thế giới.",
         Persecutory: "Bị Đàn Áp: Cảm giác rằng có những người muốn làm hại hoặc trả thù bạn.",
         Referential: "Tham Chiếu: Niềm tin rằng những thứ xung quanh (như TV, radio hoặc mọi người) có một thông điệp đặc biệt dành cho bạn.",
+
+        // --Support Page--
+        support_q1: "Tự Nhận Thức",
+        support_a1: "Tôi theo dõi những gì giúp tôi duy trì sự cân bằng và những gì và nơi nào là những tác nhân kích hoạt của tôi.",
+        support_q2: "Giao Tiếp",
+        support_a2: "Tôi chia sẻ cách bạn bè và gia đình có thể giúp đỡ tôi cùng với sự kiên nhẫn và hiểu biết.",
+        support_q3: "Nhận Thức",
+        support_a3: "Trang web này là một nơi để bình thường hóa các cuộc trò chuyện về sức khỏe tâm thần và giảm kỳ thị.",
+
+        // --Guidance Page--
     }
 };
