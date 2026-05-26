@@ -56,6 +56,16 @@ export const translations = {
         Grandiose: "Grandiose: Paniniwala na may espesyal na kapangyarihan, talento, o misyon sa mundo.",
         Persecutory: "Persecutory: Pakiramdam na may mga taong gustong saktan o maghiganti sa iyo.",
         Referential: "Referential: Paniniwala na ang mga bagay sa paligid (tulad ng TV, radyo, o mga tao) ay may espesyal na mensahe para sa iyo.",
+
+        // --Support Page--
+        support_q1: "Self-awareness",
+        support_a1: "I track anong mga nakakatulong sa akin to stay balanced and ano at saan ang triggers ko.",
+        support_q2: "Communication",
+        support_a2: "I share paano ako matutulungan ng friends and family kasama ng patience and understanding.",
+        support_q3: "Awareness",
+        support_a3: "Ang website na ito ay lugar to normalize mental health conversations and reduce stigma.",
+
+        // --Guidance Page--
     },
     vi: {
         brand: "Hành Trình của Hoie",
