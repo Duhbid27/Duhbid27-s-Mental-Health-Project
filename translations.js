@@ -202,6 +202,6 @@ export const translations = {
         d_do_tone_safety: "Giao Tiếp An Toàn Về Giọng Điệu: Vui lòng mở rộng thêm một chút kiên nhẫn với phong cách văn bản của bạn. Để bảo vệ tôi khỏi việc suy nghĩ quá nhiều, hãy sử dụng thêm sự ấm áp, thêm emoji hoặc đảm bảo tôi một cách rõ ràng bằng cách nói, 'Này, tôi chỉ bận một chút nhưng chúng ta hoàn toàn ổn ha!'",
         d_do_2: "Đi Bộ Nhẹ Nhàng Hàng Ngày: Đừng để tôi ở trong nhà quá lâu. Vui lòng khuyến khích tôi bước ra ngoài đi bộ hàng ngày. Việc di chuyển giúp thay đổi sự trì trệ.",
         d_do_3: "Đêm Phim Áp Lực Thấp: Đề xuất một đêm xem phim cùng nhau. Không cần phải nói chuyện căng thẳng hoặc đặt câu hỏi sâu sắc về cuộc sống - chỉ đơn giản là ở bên tôi trong im lặng.",
-        d_do_4: "Bảo Vệ Vệ Sinh & Dinh Dưỡng Cơ Bản: Khi cảm xúc thấp, việc chăm sóc cơ thể của tôi trở nên khó khăn. Vui lòng kiểm tra xem tôi đã ăn đúng cách chưa
+        d_do_4: "Bảo Vệ Vệ Sinh & Dinh Dưỡng Cơ Bản: Khi cảm xúc thấp, việc chăm sóc cơ thể của tôi trở nên khó khăn. Vui lòng kiểm tra xem tôi đã ăn đúng cách chưa và nhẹ nhàng hướng dẫn tôi thực hiện vệ sinh hàng ngày cơ bản.",
     }
 };
