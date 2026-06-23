@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Leonne!</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #f7ebe1;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            cursor: pointer;
+            perspective: 1000px;
+        }
+
+        /* --- STAGE -1: PASSWORD OVERLAY --- */
+        #password-stage {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #151b26;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            transition: opacity 0.6s ease;
+        }
+        .password-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .password-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .password-box input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.08);
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            text-align: center;
+            outline: none;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+        .password-box input:focus {
+            border-color: #d96a7b;
+            background: rgba(255, 255, 255, 0.15);
+        }
+        .unlock-btn {
+            background: #d96a7b;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        .unlock-btn:hover {
+            background: #c25868;
+        }
+
+        /* --- STAGE 0: CAKE STAGE --- */
+        #cake-stage {
+            position: absolute;
+            text-align: center;
+            transition: opacity 0.6s ease;
+            z-index: 10;
+        }
+        .cake-container {
+            position: relative;
+            margin: 2rem auto;
+            width: 150px;
+        }
+        .candle {
+            width: 16px;
+            height: 60px;
+            background: linear-gradient(to right, #06b6d4, #22d3ee);
+            margin: 0 auto;
+            position: relative;
+            border-radius: 4px;
+        }
+        .flame {
+            position: absolute;
+            top: -25px; left: 50%;
+            transform: translateX(-50%);
+            width: 16px; height: 26px;
+            background: linear-gradient(to bottom, #f97316, #facc15);
+            border-radius: 50% 50% 20% 20%;
+            box-shadow: 0 0 15px #facc15;
+            animation: flicker 0.15s infinite alternate;
+        }
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scale(1); }
+            100% { transform: translateX(-50%) scale(1.1); }
+        }
+
+        /* --- STAGE 1 & 2: CONTAINER FRAMES --- */
+        #card-stage {
+            display: none;
+            width: 90%;
+            max-width: 500px;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+        .card-wrapper {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            text-align: center;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.6s ease;
+        }
+        
+        /* Photo Layer Layout */
+        #photo-layer img {
+            width: 100%;
+            max-height: 280px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        
+        /* --- STAGE 3: THE HEARTFELT LETTER LAYER --- */
+        #letter-layer {
+            text-align: left;
+            width: 100%;
+            color: #334155;
+            line-height: 1.7;
+        }
+        .letter-content p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        /* Birthday Dynamic Text Design */
+        .birthday-greeting-block {
+            margin-top: 2rem;
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px dashed #e2e8f0;
+        }
+        .hbd-text {
+            font-family: 'Georgia', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #d96a7b;
+            letter-spacing: 0.5px;
+            animation: bounce 2s infinite alternate;
+        }
+        .signature-text {
+            text-align: right;
+            margin-top: 1.5rem;
+            font-style: italic;
+            font-weight: 600;
+            color: #64748b;
+        }
+
+        /* Global Helpers */
+        .hidden { display: none !important; }
+        #cake-instruction { margin-top: 1rem; font-weight: 600; color: #475569; }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="password-stage">
+        <div class="password-box">
+            <span style="font-size: 3rem; display: block; margin-bottom: 0.5rem;">🔒</span>
+            <h3>Private Access</h3>
+            <p style="font-size: 0.85rem; color: #888; margin-bottom: 1.5rem;">This card is locked. Enter the special code to open Leonne's card.</p>
+            
+            <input type="password" id="cardPassword" placeholder="Type password here..." autocomplete="off">
+            <span id="togglePasswordBtn" onclick="togglePasswordVisibility(event)" style="display: block; font-size: 0.8rem; color: #888; text-align: right; margin-bottom: 1.2rem; cursor: pointer; user-select: none;">👁️ Show Password</span>
+            
+            <button class="unlock-btn" onclick="checkPassword(event)">Unlock Card</button>
+            <p id="password-error" style="color: #d96a7b; font-size: 0.85rem; margin-top: 12px; display: none; font-weight: 500;">Oops! Wrong code. Try again! 🤔</p>
+        </div>
+    </div>
+
+    <div id="cake-stage">
+        <div class="cake-container" onclick="blowCandle(event)">
+            <div class="flame" id="flame"></div>
+            <div class="candle"></div>
+        </div>
+        <p id="cake-instruction">Make a wish and click the flame to blow it out!</p>
+    </div>
+
+    <div id="card-stage">
+        <div class="card-wrapper" id="card">
+            
+            <div id="photo-layer">
+                <img src="https://lh3.googleusercontent.com/d/1TzKTFR82E7-p4PCoJ9g6gb64wGLRaEzX" alt="Special Memory Photo Block">
+                <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #64748b; font-style: italic;">Tap anywhere to read my letter for you...</p>
+            </div>
+
+            <div id="letter-layer" class="hidden">
+                <div class="letter-content">
+                    <p style="font-weight: 700; color: #0f172a;">Dear Leonne,</p>
+                    <p>
+                        Hi Baby Boy! Happy Birthday! 🎉🎂 I hope this day brings you as much joy and happiness as you bring to everyone around you. You deserve all the love and success in the world.
+                    </p>
+                    <p>
+                        I hope you liked this munting digital space I made for your special day. I'm always here to support you through everything! Just message me anytime you want to talk, of just share something no matter how small that is.
+                    </p>
+                    
+                    <div class="birthday-greeting-block">
+                        <div class="hbd-text">✨ Happy Birthday, Baby Boy! 🎉</div>
+                    </div>
+
+                    <div class="signature-text">
+                        Love lots,<br>
+                        <span style="color: #0f172a; font-size: 1.1rem;">Hoie</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Track progression step: -1 = Locked, 0 = Cake, 1 = Photo Card, 2 = Open/Showing Photo, 3 = Showing Letter
+        let currentStep = -1;
+        
+        const passStage = document.getElementById('password-stage');
+        const cakeStage = document.getElementById('cake-stage');
+        const cardStage = document.getElementById('card-stage');
+        const card = document.getElementById('card');
+        const photoLayer = document.getElementById('photo-layer');
+        const letterLayer = document.getElementById('letter-layer');
+
+        // Toggle Password Visibility Eye Utility
+        window.togglePasswordVisibility = function(event) {
+            event.stopPropagation(); 
+            const inputField = document.getElementById('cardPassword');
+            const toggleBtn = document.getElementById('togglePasswordBtn');
+            
+            if (inputField.type === 'password') {
+                inputField.type = 'text';
+                toggleBtn.innerHTML = '🙈 Hide Password';
+            } else {
+                inputField.type = 'password';
+                toggleBtn.innerHTML = '👁️ Show Password';
+            }
+        }
+
+        // Verify Lock Gate Access Input Code
+        window.checkPassword = function(event) {
+            if (event) event.stopPropagation();
+            const inputField = document.getElementById('cardPassword');
+            const errorText = document.getElementById('password-error');
+            
+            // TARGET PASSWORD INTERCEPT STRING KEY
+            const SECRET_PASSWORD = "leonne_birthday_2026";
+
+            if (inputField.value === SECRET_PASSWORD) {
+                errorText.style.display = 'none';
+                passStage.style.opacity = '0';
+                setTimeout(() => {
+                    passStage.style.display = 'none';
+                    currentStep = 0; // Moves to Cake viewport
+                }, 600);
+            } else {
+                errorText.style.display = 'block';
+                inputField.style.borderColor = '#d96a7b';
+            }
+        }
+
+        // Allow unlocking by hitting 'Enter' key inside password field
+        document.getElementById('cardPassword').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                window.checkPassword(e);
+            }
+        });
+
+        // Step 1: Blow out virtual flame candle execution
+        window.blowCandle = function(event) {
+            event.stopPropagation();
+            document.getElementById('flame').style.display = 'none';
+            document.getElementById('cake-instruction').innerText = "Wish granted! ✨";
+            
+            setTimeout(() => {
+                cakeStage.style.opacity = '0';
+                setTimeout(() => {
+                    cakeStage.style.display = 'none';
+                    cardStage.style.display = 'block';
+                    setTimeout(() => {
+                        cardStage.style.opacity = '1';
+                        currentStep = 1; // Unlocks Card structural layer
+                    }, 50);
+                }, 800);
+            }, 1000);
+        }
+
+        // Global viewport body dynamic tap/click flow step coordinator
+        document.body.addEventListener('click', () => {
+            if (currentStep === 1) {
+                // If it's on the photo layer base, register state position tag update
+                currentStep = 2;
+            } else if (currentStep === 2) {
+                // Shift seamlessly towards rendering the full letter block details
+                photoLayer.classList.add('hidden');
+                letterLayer.classList.remove('hidden');
+                currentStep = 3;
+            }
+        });
+    </script>
+</body>
+</html>
