@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To The Graduate 🎉</title>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #d69e2e;
+            --bg-grad: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--bg-grad);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .stage {
+            display: none;
+            width: 90%;
+            max-width: 500px;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .stage.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* --- STAGE 0: LOCK --- */
+        .password-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 10px;
+            outline: none;
+        }
+        .password-input:focus {
+            border-color: var(--primary);
+        }
+        .error-msg {
+            color: #e53e3e;
+            font-size: 0.9rem;
+            height: 20px;
+        }
+
+        /* --- THE TUCKED LETTER LAYER --- */
+        #tucked-letter {
+            display: none; /* Hidden on load, only shown at the very end */
+            animation: fadeIn 0.5s ease;
+        }
+        .letter-content {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #2d3748;
+            text-align: justify;
+            max-height: 350px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        .letter-content p {
+            margin-bottom: 15px;
+        }
+
+        /* --- STAGE 1: CAP TOSS --- */
+        .cap-container {
+            height: 300px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            background: #f8fafc;
+            border-radius: 15px;
+        }
+        .instructions {
+            position: absolute;
+            top: 15px;
+            width: 100%;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+        .grad-cap {
+            font-size: 5rem;
+            position: absolute;
+            bottom: 20px;
+            left: calc(50% - 2.5rem);
+            transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .grad-cap.tossed {
+            bottom: 220px;
+            transform: scale(0.6) rotate(360deg);
+            opacity: 0.3;
+        }
+        .confetti {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: all 0.5s ease-out;
+            bottom: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- STAGE 0: ACCESS GATE & FINAL LETTER FRAME -->
+    <div id="stage0" class="stage active">
+        <div id="lock-screen-ui">
+            <h2>🔒 Class of 2026</h2>
+            <p style="color: #4a5568; margin-bottom: 20px;">Enter the secret password to unlock your graduation memory lane.</p>
+            <input type="password" id="password" class="password-input" placeholder="Hint: graduate">
+            <div id="error" class="error-msg"></div>
+            <button onclick="checkPassword()">Unlock</button>
+        </div>
+
+        <div id="tucked-letter">
+            <h2 style="font-family: 'Georgia', serif;">Dearest Elikah,</h2>
+            <div class="letter-content">
+                <p> The culmination of your sleepless nights, endless coffee runs, and unwavering dedication hopefully stopped at your graduation day. You didn't just survive school; you conquered it.</p>
+                <p>As you step out into the "real world," remember that mistakes are just stepping stones, and passion is your compass. Never lose that spark of curiosity that got you here in the first place.</p>
+                <p>I am incredibly proud of who you have become, and I cannot wait to see how you will change the world. Just know that I will be here if you need to talk with someone. Congratulations on your graduation!</p>
+                <p>Congrats also with your research. I'll send you pdf references and board exam reviewer once your classes started.</p>
+                <p>Love lots,<br><strong>Howie</strong></p>
+            </div>
+            <button onclick="restart()">Restart ↺</button>
+        </div>
+    </div>
+
+    <!-- STAGE 1: CAP TOSS INTERACTION -->
+    <div id="stage1" class="stage">
+        <h2>The Big Moment</h2>
+        <div class="cap-container" onclick="tossCap()">
+            <div class="instructions" id="toss-text">Tap the cap to celebrate!</div>
+            <div id="cap" class="grad-cap">🎓</div>
+            <div class="confetti" style="left: 30%;">✨</div>
+            <div class="confetti" style="left: 50%;">🎉</div>
+            <div class="confetti" style="left: 70%;">🌟</div>
+        </div>
+        <!-- Directly proceeds to step 3 (revealing the letter) -->
+        <button id="next1" style="display: none;" onclick="nextStage(3)">Read Your Letter ➔</button>
+    </div>
+
+    <script>
+        const SECRET_PASSWORD = "2026";
+
+        function checkPassword() {
+            const input = document.getElementById('password').value;
+            const error = document.getElementById('error');
+            
+            if(input.toLowerCase() === SECRET_PASSWORD) {
+                nextStage(1);
+            } else {
+                error.innerText = "Incorrect password!";
+            }
+        }
+
+        // Trigger unlock on 'Enter' keypress
+        document.getElementById('password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        function tossCap() {
+            const cap = document.getElementById('cap');
+            const text = document.getElementById('toss-text');
+            const nextBtn = document.getElementById('next1');
+            const confettis = document.querySelectorAll('.confetti');
+
+            cap.classList.add('tossed');
+            text.innerText = "Hooray! You did it!";
+
+            confettis.forEach((c, index) => {
+                setTimeout(() => {
+                    c.style.opacity = '1';
+                    c.style.transform = `translateY(-100px) scale(1.5)`;
+                }, index * 100);
+            });
+
+            setTimeout(() => {
+                nextBtn.style.display = "inline-block";
+                nextBtn.style.animation = "fadeIn 0.5s ease";
+            }, 800);
+        }
+
+        function nextStage(stageNum) {
+            // Hide all active container layout blocks
+            document.querySelectorAll('.stage').forEach(stage => {
+                stage.classList.remove('active');
+            });
+
+            if (stageNum === 3) {
+                // Skip straight to unlocking stage0 panel elements and show the letter
+                document.getElementById('stage0').classList.add('active');
+                document.getElementById('lock-screen-ui').style.display = 'none';
+                document.getElementById('tucked-letter').style.display = 'block';
+            } else {
+                document.getElementById(`stage${stageNum}`).classList.add('active');
+            }
+        }
+
+        function restart() {
+            // Re-align lock gate defaults
+            document.getElementById('password').value = "";
+            document.getElementById('error').innerText = "";
+            document.getElementById('lock-screen-ui').style.display = 'block';
+            document.getElementById('tucked-letter').style.display = 'none';
+            
+            // Clean up cap toss animations
+            const cap = document.getElementById('cap');
+            cap.classList.remove('tossed');
+            document.getElementById('toss-text').innerText = "Tap the cap to celebrate!";
+            document.getElementById('next1').style.display = "none";
+            
+            document.querySelectorAll('.confetti').forEach(c => {
+                c.style.opacity = '0';
+                c.style.transform = 'none';
+            });
+
+            nextStage(0);
+        }
+    </script>
+</body>
+</html>
