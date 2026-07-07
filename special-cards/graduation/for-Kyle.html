@@ -143,36 +143,11 @@
             transition: all 0.5s ease-out;
             bottom: 200px;
         }
-
-        /* --- STAGE 2: GIFTS SCROLL --- */
-        .scroll-container {
-            max-height: 300px;
-            overflow-y: auto;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 15px;
-            text-align: left;
-            background: #fff;
-            -webkit-overflow-scrolling: touch; 
-        }
-        .gift-item {
-            padding: 15px 0;
-            border-bottom: 1px solid #edf2f7;
-        }
-        .gift-item:last-child {
-            border-bottom: none;
-        }
-        .gift-title {
-            font-weight: bold;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
     </style>
 </head>
 <body>
 
+    <!-- STAGE 0: ACCESS GATE & FINAL LETTER FRAME -->
     <div id="stage0" class="stage active">
         <div id="lock-screen-ui">
             <h2>🔒 Class of 2026</h2>
@@ -194,6 +169,7 @@
         </div>
     </div>
 
+    <!-- STAGE 1: CAP TOSS INTERACTION -->
     <div id="stage1" class="stage">
         <h2>The Big Moment</h2>
         <div class="cap-container" onclick="tossCap()">
@@ -203,51 +179,8 @@
             <div class="confetti" style="left: 50%;">🎉</div>
             <div class="confetti" style="left: 70%;">🌟</div>
         </div>
-        <button id="next1" style="display: none;" onclick="nextStage(2)">See Your Gifts ➔</button>
-    </div>
-
-    <div id="stage2" class="stage">
-        <h2>Unwrapping Meanings</h2>
-        <p style="color: #718096; font-size: 0.9rem; margin-bottom: 10px;">👇 Scroll down to read all meanings</p>
-        <div class="scroll-container">
-            <div class="gift-item">
-                <div class="gift-title">The Crochet Red String & Gold Thread Bracelet</div>
-                <p><strong>A hand-stitched lifeline of protection, resilience, and ultimate survival.</strong></p>
-                <p>This is not just an ordinary accessory—it is a suicide prevention bracelet, intricately handcrafted to serve as a daily, visible anchor reminding you that your existence matters and that you are meant to stay here.</p>
-                <li>The Crochet Symbolism (The Power of Persistence): Because this bracelet is crocheted, it is made entirely of a single thread looping back into itself, stitch by stitch. In life, crochet symbolizes patience, restoration, and rebuilding. If a mistake is made, it can be unraveled and mended; it teaches us that no matter how tangled or broken things seem, life can always be beautifully reconstructed, one small choice at a time. The tight interlocking stitches represent an unbreakable resilience.</li>
-                <li>The Red Thread (The Lifeline): Red is the color of the life-force, blood, and the heart. In this suicide prevention piece, it acts as a literal lifeline on your wrist. It symbolizes ultimate protection, vitality, and the courage to push through the darkest nights.</li>
-                <li>The Gold Thread (The Light of Hope): Woven seamlessly into the crochet stitches, the gold thread represents resilience, divine light, and the alchemy of turning pain into wisdom. Gold never tarnishes; it signifies your enduring worth and the bright future that awaits on the other side of healing.</li>
-                <p><strong>Cultural & Spiritual Dimensions</strong></p>
-                <li>Chinese Feng Shui & Lore: Represents The Red Thread of Fate. The gods tie an invisible red string around those destined to meet and help one another. It signifies that you are never truly alone, and your story is deeply interconnected with others. Red also repels negative energy (Sha Chi) and attracts vitality.</li>
-                <li>Japanese Culture: Known as Unmei no akai ito (Red String of Fate). It teaches that while the string may stretch, tangle, or fray, it will never break. No matter how fractured you feel, your connection to life and your purpose remains unbroken.</li>
-                <li>Buddhism: In Tibetan Buddhism, red strings are blessed by Lamas and tied around the wrist to offer protection, ground the spirit, and serve as a reminder of sacred vows, compassion, and the preciousness of human life.</li>
-            </div>
-            <div class="gift-item">
-                <div class="gift-title">The Single Decade Rosary (Keychain/Bracelet)</div>
-                <p><strong>A spiritual reminder of your journey and the power of prayer.</strong></p>
-                <p>A single-decade (or mystery) rosary is designed to be a companion on the go—wearable on the wrist or kept close on your keys.</p>
-                <li>What it Symbolizes: The Rosary is a powerful symbol of devotion, spiritual warfare, and peace. Each of the 10 beads represents a Hail Mary, structured to guide you through a meditative reflection on the joys, sorrows, and triumphs of life.</li>
-                <li>A Tool for Grounding: Beyond its religious weight, holding the beads one by one acts as a tangible tactile grounding exercise during moments of high anxiety, panic, or loneliness.</li>
-                <p><strong>Catholic Significance</strong></p>
-                <li>In Catholicism, the Rosary is considered a spiritual weapon of protection and a direct line to the Virgin Mary, offering maternal comfort to the suffering. It symbolizes hope in resurrection and renewal—a reminder that after every "Sorrowful Mystery" in life, a "Glorious" one follows.</li>
-            </div>
-            <div class="gift-item">
-                <div class="gift-title">The Short Kumihimo Keychain</div>
-                <p><strong>The beautiful art of weaving together the scattered pieces.</strong></p>
-                <p>Kumihimo is a traditional Japanese art form of making braided cords, literally meaning "gathered threads."</p>
-                <li>What it Symbolizes: The process of Kumihimo symbolizes patience, intentionality, and the beauty of creation. Separated, individual threads are weak and easily broken; however, when braided together tightly, they create an incredibly strong, resilient cord. It is a metaphor for gathering your thoughts, your strength, and your support systems to create an unbreakable bond.</li>
-                <li>The Red and Gold Thread Symbolism: In this braid, the red and gold intertwine to represent the seamless blending of human vitality (red) and divine protection (gold). It symbolizes that your life and your hope are locked together, reinforcing one another.</li>
-                <p><strong>Eastern Spiritual Dimensions</strong>
-                <li>Shintoism: In Shinto belief, the creation of cords represents the flow of time and the binding of spirits (Musubi). Braiding Kumihimo is seen as a meditative act that connects the human world to the divine, capturing the essence of life's interconnected timeline.</li>
-                <li>Buddhism: The interwoven nature of the braid reflects the concept of Interbeing—the realization that we do not exist in isolation. We are beautifully woven into the fabric of the universe.</li>
-
-            </div>
-            <div class="gift-item">
-                <div class="gift-title">A Note for the Wearer:</div>
-                <p>When you look at these gifts, remember that you are protected, you are connected, and you are deeply valued. Let the red anchor you to earth, let the gold remind you of your light, let the beads offer you peace, and let the braid remind you of your inner strength.</p>
-            </div>
-        </div>
-        <button onclick="nextStage(3)">Read Your Letter ➔</button>
+        <!-- Directly proceeds to step 3 (revealing the letter) -->
+        <button id="next1" style="display: none;" onclick="nextStage(3)">Read Your Letter ➔</button>
     </div>
 
     <script>
@@ -258,11 +191,18 @@
             const error = document.getElementById('error');
             
             if(input.toLowerCase() === SECRET_PASSWORD) {
-                nextStage(1); // Standard flow: password unlocks cap toss
+                nextStage(1);
             } else {
                 error.innerText = "Incorrect password!";
             }
         }
+
+        // Trigger unlock on 'Enter' keypress
+        document.getElementById('password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
 
         function tossCap() {
             const cap = document.getElementById('cap');
@@ -287,30 +227,29 @@
         }
 
         function nextStage(stageNum) {
-            // Hide all main page containers
+            // Hide all active container layout blocks
             document.querySelectorAll('.stage').forEach(stage => {
                 stage.classList.remove('active');
             });
 
             if (stageNum === 3) {
-                // LAST STAGE: Reactivate stage0 layout, but hide login form and reveal the letter
+                // Skip straight to unlocking stage0 panel elements and show the letter
                 document.getElementById('stage0').classList.add('active');
                 document.getElementById('lock-screen-ui').style.display = 'none';
                 document.getElementById('tucked-letter').style.display = 'block';
             } else {
-                // Stages 0, 1, and 2 standard transition
                 document.getElementById(`stage${stageNum}`).classList.add('active');
             }
         }
 
         function restart() {
-            // Reset Lock Screen interface parameters back to default
+            // Re-align lock gate defaults
             document.getElementById('password').value = "";
             document.getElementById('error').innerText = "";
             document.getElementById('lock-screen-ui').style.display = 'block';
             document.getElementById('tucked-letter').style.display = 'none';
             
-            // Clean up Stage 1 Cap Toss animation frame properties
+            // Clean up cap toss animations
             const cap = document.getElementById('cap');
             cap.classList.remove('tossed');
             document.getElementById('toss-text').innerText = "Tap the cap to celebrate!";
